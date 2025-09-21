@@ -53,7 +53,7 @@ const ArticleCard = ({
                 )}
               </div>
             </div>
-            <Link
+            <Link prefetch={true}
               href={url}
               target='_blank'
               rel='noopener noreferrer'

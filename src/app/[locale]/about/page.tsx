@@ -63,7 +63,7 @@ export default function AboutPage() {
                       <span className='text-sm text-gray-600 dark:text-gray-400'>Product Manager</span>
                     </td>
                     <td className='py-3 px-2'>
-                      <Link
+                      <Link prefetch={true}
                         href='https://studioeurygraph.com'
                         target='_blank'
                         rel='noopener noreferrer'
@@ -81,7 +81,7 @@ export default function AboutPage() {
                       <span className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer</span>
                     </td>
                     <td className='py-3 px-2'>
-                      <Link
+                      <Link prefetch={true}
                         href='https://global.toyota'
                         target='_blank'
                         rel='noopener noreferrer'
@@ -99,7 +99,7 @@ export default function AboutPage() {
                       <span className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer<br />Tech Lead / Project Leader</span>
                     </td>
                     <td className='py-3 px-2'>
-                      <Link
+                      <Link prefetch={true}
                         href='https://cloud-ace.jp'
                         target='_blank'
                         rel='noopener noreferrer'
@@ -145,7 +145,7 @@ export default function AboutPage() {
               {t('documents')}
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-              <Link
+              <Link prefetch={true}
                 href='https://storage.googleapis.com/takumi-mizuno/resume.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 </div>
                 <ExternalLink className='h-5 w-5 text-blue-600 dark:text-blue-400' />
               </Link>
-              <Link
+              <Link prefetch={true}
                 href='https://storage.googleapis.com/takumi-mizuno/job-history.pdf'
                 target='_blank'
                 rel='noopener noreferrer'

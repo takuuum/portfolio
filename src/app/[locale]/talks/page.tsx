@@ -56,7 +56,7 @@ const TalkCard = ({
                 </div>
               </div>
             </div>
-            <Link
+            <Link prefetch={true}
               href={link}
               target='_blank'
               rel='noopener noreferrer'

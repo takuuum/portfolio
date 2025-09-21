@@ -52,7 +52,7 @@ const ProjectCard = ({
               </div>
             </div>
             {url && (
-              <Link
+              <Link prefetch={true}
                 href={url}
                 target='_blank'
                 rel='noopener noreferrer'

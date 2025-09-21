@@ -44,7 +44,7 @@ const DashboardCard = ({
 
   if (href) {
     return (
-      <Link href={href} className='block'>
+      <Link prefetch={true} href={href} className='block'>
         <CardContent />
       </Link>
     );
@@ -66,7 +66,7 @@ const QuickActionCard = ({
   icon: any;
   external?: boolean;
 }) => (
-  <Link
+  <Link prefetch={true}
     href={href}
     target={external ? '_blank' : undefined}
     rel={external ? 'noopener noreferrer' : undefined}

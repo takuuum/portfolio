@@ -62,10 +62,10 @@ export function AppSidebar() {
                 return (
                   <SidebarMenuItem key={item.href}>
                     <SidebarMenuButton asChild isActive={isActive}>
-                      <HoverPrefetchLink href={item.href}>
+                      <Link prefetch={true} href={item.href}>
                         <Icon className='h-4 w-4' />
                         <span>{item.label}</span>
-                      </HoverPrefetchLink>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 );
@@ -80,12 +80,12 @@ export function AppSidebar() {
             <LocaleSwitcher />
             <ThemeToggle />
             <Button variant='ghost' size='icon' asChild>
-              <Link href="https://github.com/takuuum" target='_blank'>
+              <Link prefetch={true} href="https://github.com/takuuum" target='_blank'>
                 <FaGithub className='h-4 w-4' />
               </Link>
             </Button>
             <Button variant='ghost' size='icon' asChild>
-              <Link href="https://note.com/mizutaku0705" target='_blank'>
+              <Link prefetch={true} href="https://note.com/mizutaku0705" target='_blank'>
                 <Image src='/note.webp' alt='note' width={24} height={24} className='rounded-full dark:invert' />
               </Link>
             </Button>
