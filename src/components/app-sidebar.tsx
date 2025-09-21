@@ -22,6 +22,7 @@ import { LocaleSwitcher } from '@/components/locale-switcher';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from './ui/button';
+import { HoverPrefetchLink } from './hover-prefetch-link';
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -66,10 +67,10 @@ export function AppSidebar() {
                 return (
                   <SidebarMenuItem key={item.href}>
                     <SidebarMenuButton asChild isActive={isActive}>
-                      <Link href={item.href}>
+                      <HoverPrefetchLink href={item.href}>
                         <Icon className='h-4 w-4' />
                         <span>{item.label}</span>
-                      </Link>
+                      </HoverPrefetchLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 );
