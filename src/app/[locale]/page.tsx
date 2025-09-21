@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import { Home, User, Code, FileText, Award, MicVocal, Trophy, Calendar, TrendingUp, Cpu, ExternalLink } from 'lucide-react';
-import { ChatBot } from '@/components/chat-bot';
+import { User, Code, FileText, Award, MicVocal, Trophy, Calendar, TrendingUp, Cpu, ExternalLink } from 'lucide-react';
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
 
