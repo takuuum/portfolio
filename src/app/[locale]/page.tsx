@@ -118,6 +118,7 @@ export default function HomePage() {
                 value="4+"
                 icon={Calendar}
                 description={t('experienceDesc')}
+                href="/skills"
                 color="blue"
               />
               <DashboardCard
