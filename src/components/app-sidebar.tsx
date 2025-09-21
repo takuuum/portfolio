@@ -21,6 +21,7 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { LocaleSwitcher } from '@/components/locale-switcher';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { Button } from './ui/button';
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -76,34 +77,22 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <SidebarSeparator />
-        <SidebarGroup>
-          <SidebarGroupLabel>Links</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {linkItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <SidebarMenuItem key={item.href}>
-                    <SidebarMenuButton asChild>
-                      <Link href={item.href} target='_blank'>
-                        <Icon className='h-4 w-4' />
-                        <span>{item.label}</span>
-                        <ExternalLink className='h-4 w-4' />
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                );
-              })}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
         <div className='flex flex-col gap-2 p-2'>
           <div className='flex items-center justify-end'>
             <LocaleSwitcher />
             <ThemeToggle />
+            <Button variant='ghost' size='icon' asChild>
+              <Link href="https://github.com/takuuum" target='_blank'>
+                <FaGithub className='h-4 w-4' />
+              </Link>
+            </Button>
+            <Button variant='ghost' size='icon' asChild>
+              <Link href="https://note.com/mizutaku0705" target='_blank'>
+                <Image src='/note.webp' alt='note' width={24} height={24} className='rounded-full dark:invert' />
+              </Link>
+            </Button>
           </div>
         </div>
       </SidebarFooter>
