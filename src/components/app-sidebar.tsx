@@ -8,14 +8,12 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarSeparator,
 } from '@/components/ui/sidebar';
-import { Home, User, FileText, ExternalLink, StickyNote, Trophy, Code, MicVocal, Cpu } from 'lucide-react';
+import { Home, User, FileText, Code, MicVocal, Cpu, Award } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { LocaleSwitcher } from '@/components/locale-switcher';
@@ -35,7 +33,7 @@ export function AppSidebar() {
     { href: '/projects', label: t('projects'), icon: Code },
     { href: '/articles', label: t('articles'), icon: FileText },
     { href: '/talks', label: t('talks'), icon: MicVocal },
-    { href: '/awards', label: t('awards'), icon: Trophy },
+    { href: '/awards', label: t('awards'), icon: Award },
   ];
 
   return (
@@ -75,21 +73,19 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className='flex flex-col gap-2 p-2'>
-          <div className='flex items-center justify-end'>
-            <LocaleSwitcher />
-            <ThemeToggle />
-            <Button variant='ghost' size='icon' asChild>
-              <Link prefetch={true} href="https://github.com/takuuum" target='_blank'>
-                <FaGithub className='h-4 w-4' />
-              </Link>
-            </Button>
-            <Button variant='ghost' size='icon' asChild>
-              <Link prefetch={true} href="https://note.com/mizutaku0705" target='_blank'>
-                <Image src='/note.webp' alt='note' width={24} height={24} className='rounded-full dark:invert' />
-              </Link>
-            </Button>
-          </div>
+        <div className='flex items-center justify-end'>
+          <LocaleSwitcher />
+          <ThemeToggle />
+          <Button variant='ghost' size='icon' asChild>
+            <Link prefetch={true} href="https://github.com/takuuum" target='_blank'>
+              <FaGithub className='h-4 w-4' />
+            </Link>
+          </Button>
+          <Button variant='ghost' size='icon' asChild>
+            <Link prefetch={true} href="https://note.com/mizutaku0705" target='_blank'>
+              <Image src='/note.webp' alt='note' width={24} height={24} className='rounded-full dark:invert' />
+            </Link>
+          </Button>
         </div>
       </SidebarFooter>
     </Sidebar>
