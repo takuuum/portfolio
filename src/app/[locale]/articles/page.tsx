@@ -1,12 +1,13 @@
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FileText, ExternalLink, Award, Calendar, Code, Heart } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
-const ArticleCard = ({ 
-  title, 
+const ArticleCard = ({
+  title,
   platform,
-  url, 
+  url,
   description,
   award,
   type = 'tech'
@@ -18,6 +19,7 @@ const ArticleCard = ({
   award?: string;
   type?: 'tech' | 'other';
 }) => {
+  const t = useTranslations('Articles');
   const typeColors = {
     tech: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800',
     other: 'bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-800'
@@ -57,7 +59,7 @@ const ArticleCard = ({
               rel='noopener noreferrer'
               className='flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm flex-shrink-0'
             >
-              Read Article
+              {t('readArticle')}
               <ExternalLink className='h-4 w-4' />
             </Link>
           </div>
@@ -71,24 +73,25 @@ const ArticleCard = ({
 };
 
 export default function ArticlesPage() {
+  const t = useTranslations('Articles');
   return (
     <>
       <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
         <SidebarTrigger className='-ml-1' />
-        <h1 className='text-lg font-semibold'>Articles</h1>
+        <h1 className='text-lg font-semibold'>{t('title')}</h1>
       </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-4xl mx-auto space-y-8'>
-          
+
           {/* Header Section */}
           <section className='text-center space-y-4'>
             <div className='flex justify-center'>
               <FileText className='h-16 w-16 text-blue-600' />
             </div>
             <div>
-              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>Articles</h2>
+              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>{t('title')}</h2>
               <p className='text-lg text-gray-600 dark:text-gray-300 mt-2'>
-                Technical insights and personal reflections on software engineering
+                {t('subtitle')}
               </p>
             </div>
           </section>
@@ -98,14 +101,14 @@ export default function ArticlesPage() {
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="technical" className="flex items-center gap-2">
                 <Code className="h-4 w-4" />
-                Technical Articles
+                {t('technicalArticles')}
               </TabsTrigger>
               <TabsTrigger value="personal" className="flex items-center gap-2">
                 <Heart className="h-4 w-4" />
-                Personal Reflections
+                {t('notTechnicalArticles')}
               </TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="technical" className="mt-6">
               <div className='space-y-6'>
                 <ArticleCard
@@ -115,7 +118,7 @@ export default function ArticlesPage() {
                   description="An architectural deep-dive into transaction implementation patterns across different layers of application architecture. Explores the trade-offs between implementing transactions at the service layer, repository layer, or use case layer, with practical examples and best practices for maintaining data consistency in complex applications."
                   type="tech"
                 />
-                
+
                 <ArticleCard
                   title="OpenTelemetry+Go Instrumentation Sample Collection with Cloud Trace"
                   platform="Zenn"
@@ -124,7 +127,7 @@ export default function ArticlesPage() {
                   award="Zenn Special Award"
                   type="tech"
                 />
-                
+
                 <ArticleCard
                   title="Zero Running Cost Web Application Technical Architecture"
                   platform="Zenn"
@@ -132,7 +135,7 @@ export default function ArticlesPage() {
                   description="Detailed technical architecture for building and deploying web applications with zero ongoing operational costs. Explores leveraging free tiers of cloud services, serverless architectures, and static site generation to minimize infrastructure expenses while maintaining performance and scalability."
                   type="tech"
                 />
-                
+
                 <ArticleCard
                   title="Easy CI/CD Improvement: DORA Metrics × Cloud Deploy Practical Example"
                   platform="Zenn"
@@ -140,7 +143,7 @@ export default function ArticlesPage() {
                   description="Practical implementation guide for improving CI/CD pipelines using DORA metrics and Google Cloud Deploy. Demonstrates how to measure and optimize deployment frequency, lead time, change failure rate, and recovery time with real-world examples and actionable strategies."
                   type="tech"
                 />
-                
+
                 <ArticleCard
                   title="How to Permanently Store Cookies That Cannot Be Held for Even 1 Second (ITP2.3 Compatible)"
                   platform="Qiita"
@@ -150,7 +153,7 @@ export default function ArticlesPage() {
                 />
               </div>
             </TabsContent>
-            
+
             <TabsContent value="personal" className="mt-6">
               <div className='space-y-6'>
                 <ArticleCard
@@ -160,7 +163,7 @@ export default function ArticlesPage() {
                   description="A comprehensive retrospective of professional growth, technical achievements, and learning experiences throughout 2024. Reflects on challenges overcome, skills developed, and lessons learned in the rapidly evolving field of software engineering."
                   type="other"
                 />
-                
+
                 <ArticleCard
                   title="Not 'Making Your Passion Your Job' but 'Not Making What You Hate Your Job'"
                   platform="note"
@@ -168,7 +171,7 @@ export default function ArticlesPage() {
                   description="A thoughtful perspective on career satisfaction and professional fulfillment. Explores the difference between pursuing passion and avoiding dissatisfaction in career choices, with practical insights on building a sustainable and enjoyable professional path."
                   type="other"
                 />
-                
+
                 <ArticleCard
                   title="The Courage to Say You Cannot Do What You Cannot Do"
                   platform="note"
@@ -184,25 +187,25 @@ export default function ArticlesPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2'>
               <Calendar className='h-5 w-5 text-blue-600' />
-              Writing Overview
+              {t('writingOverview')}
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
               <div className='text-center'>
                 <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>5</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>Technical Articles</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('technicalArticlesCount')}</div>
               </div>
               <div className='text-center'>
                 <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>3</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>Personal Reflections</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('notTechnicalArticlesCount')}</div>
               </div>
               <div className='text-center'>
                 <div className='text-3xl font-bold text-yellow-600 dark:text-yellow-400 mb-2'>1</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>Award Received</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('awardReceived')}</div>
               </div>
             </div>
-            
+
             <div className='mt-6 space-y-4'>
-              <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Platforms</h4>
+              <h4 className='font-semibold text-gray-900 dark:text-gray-100'>{t('platforms')}</h4>
               <div className='flex flex-wrap gap-2'>
                 <span className='px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm'>
                   Zenn

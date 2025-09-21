@@ -1,14 +1,16 @@
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { User, Award, Building2, Users, Trophy, FileText, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 export default function AboutPage() {
+  const t = useTranslations('About');
   return (
     <>
       <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
         <SidebarTrigger className='-ml-1' />
-        <h1 className='text-lg font-semibold'>About Me</h1>
+        <h1 className='text-lg font-semibold'>{t('title')}</h1>
       </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-4xl mx-auto space-y-8'>
@@ -18,8 +20,8 @@ export default function AboutPage() {
               <Image src='/profile.webp' alt='Takumi Mizuno' width={128} height={128} className='rounded-full' />
             </div>
             <div>
-              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>Takumi Mizuno</h2>
-              <p className='text-lg text-gray-600 dark:text-gray-300'>Web Application Engineer</p>
+              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>{t('name')}</h2>
+              <p className='text-lg text-gray-600 dark:text-gray-300'>{t('job')}</p>
             </div>
           </section>
 
@@ -27,14 +29,14 @@ export default function AboutPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
               <User className='h-5 w-5' />
-              Profile
+              {t('profile')}
             </h3>
             <div className='prose dark:prose-invert'>
               <p className='text-gray-700 dark:text-gray-300 leading-relaxed'>
-                Web Application Engineer with experience in backend development and SRE at SI companies and Toyota Motor Corporation. Currently working on frontend development for AI text editors at a startup company.
+                {t('description1')}
               </p>
               <p className='text-gray-700 dark:text-gray-300 leading-relaxed mt-4'>
-                Responsible for a wide range of development processes including client negotiation, requirements definition, design, implementation, and testing. Specialized in client communication, requirements definition, and application architecture (DDD, Microservices, etc.).
+                {t('description2')}
               </p>
             </div>
           </section>
@@ -43,16 +45,16 @@ export default function AboutPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold mb-6 flex items-center gap-2'>
               <Building2 className='h-5 w-5' />
-              Job Summary
+              {t('jobSummary')}
             </h3>
             <div className='overflow-x-auto'>
               <table className='w-full border-collapse'>
                 <thead>
                   <tr className='border-b border-gray-200 dark:border-gray-700'>
-                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>Position</th>
-                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>Company</th>
-                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>Duration</th>
-                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>Employment Type</th>
+                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>{t('position')}</th>
+                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>{t('company')}</th>
+                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>{t('duration')}</th>
+                    <th className='text-left py-3 px-2 font-semibold text-gray-900 dark:text-gray-100'>{t('employmentType')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,20 +120,20 @@ export default function AboutPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
               <Users className='h-5 w-5' />
-              Expertise
+              {t('expertise')}
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
               <div className='p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg'>
-                <h4 className='font-semibold text-blue-900 dark:text-blue-100'>Client Communication</h4>
-                <p className='text-sm text-blue-700 dark:text-blue-300'>Smooth communication with clients</p>
+                <h4 className='font-semibold text-blue-900 dark:text-blue-100'>{t('clientCommunication')}</h4>
+                <p className='text-sm text-blue-700 dark:text-blue-300'>{t('clientCommDesc')}</p>
               </div>
               <div className='p-4 bg-green-50 dark:bg-green-900/20 rounded-lg'>
-                <h4 className='font-semibold text-green-900 dark:text-green-100'>Requirements Definition</h4>
-                <p className='text-sm text-green-700 dark:text-green-300'>Converting business requirements to technical specifications</p>
+                <h4 className='font-semibold text-green-900 dark:text-green-100'>{t('requirementsDefinition')}</h4>
+                <p className='text-sm text-green-700 dark:text-green-300'>{t('reqDefDesc')}</p>
               </div>
               <div className='p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg'>
-                <h4 className='font-semibold text-purple-900 dark:text-purple-100'>Application Design</h4>
-                <p className='text-sm text-purple-700 dark:text-purple-300'>Architecture design including DDD, Microservices</p>
+                <h4 className='font-semibold text-purple-900 dark:text-purple-100'>{t('applicationDesign')}</h4>
+                <p className='text-sm text-purple-700 dark:text-purple-300'>{t('appDesignDesc')}</p>
               </div>
             </div>
           </section>
@@ -140,7 +142,7 @@ export default function AboutPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
               <FileText className='h-5 w-5' />
-              Documents
+              {t('documents')}
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
               <Link
@@ -152,8 +154,8 @@ export default function AboutPage() {
                 <div className='flex items-center gap-3'>
                   <FileText className='h-6 w-6 text-blue-600 dark:text-blue-400' />
                   <div>
-                    <h4 className='font-semibold text-blue-900 dark:text-blue-100'>Resume</h4>
-                    <p className='text-sm text-blue-700 dark:text-blue-300'>View PDF</p>
+                    <h4 className='font-semibold text-blue-900 dark:text-blue-100'>{t('resume')}</h4>
+                    <p className='text-sm text-blue-700 dark:text-blue-300'>{t('viewPdf')}</p>
                   </div>
                 </div>
                 <ExternalLink className='h-5 w-5 text-blue-600 dark:text-blue-400' />
@@ -167,8 +169,8 @@ export default function AboutPage() {
                 <div className='flex items-center gap-3'>
                   <FileText className='h-6 w-6 text-green-600 dark:text-green-400' />
                   <div>
-                    <h4 className='font-semibold text-green-900 dark:text-green-100'>Job History</h4>
-                    <p className='text-sm text-green-700 dark:text-green-300'>View PDF</p>
+                    <h4 className='font-semibold text-green-900 dark:text-green-100'>{t('jobHistory')}</h4>
+                    <p className='text-sm text-green-700 dark:text-green-300'>{t('viewPdf')}</p>
                   </div>
                 </div>
                 <ExternalLink className='h-5 w-5 text-green-600 dark:text-green-400' />
@@ -180,21 +182,21 @@ export default function AboutPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
               <Award className='h-5 w-5' />
-              Awards
+              {t('awards')}
             </h3>
             <div className='space-y-4'>
               <div className='flex items-start gap-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg'>
                 <Trophy className='h-6 w-6 text-yellow-600 dark:text-yellow-400 mt-1' />
                 <div>
                   <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Google Cloud Partner Top Engineer 2025</h4>
-                  <p className='text-sm text-gray-600 dark:text-gray-400'>Individual Award</p>
+                  <p className='text-sm text-gray-600 dark:text-gray-400'>{t('individualAward')}</p>
                 </div>
               </div>
               <div className='flex items-start gap-4 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg'>
                 <Trophy className='h-6 w-6 text-orange-600 dark:text-orange-400 mt-1' />
                 <div>
                   <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Good Design Award 2024</h4>
-                  <p className='text-sm text-gray-600 dark:text-gray-400'>Awarded for service where I served as both Product Manager and Engineer</p>
+                  <p className='text-sm text-gray-600 dark:text-gray-400'>{t('productDesign')}</p>
                 </div>
               </div>
             </div>

@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Home, User, Code, FileText, Award, MicVocal, Trophy, Calendar, TrendingUp, Cpu, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
 import { ChatBot } from '@/components/chat-bot';
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/routing';
 
 const DashboardCard = ({
   title,
@@ -85,11 +86,12 @@ const QuickActionCard = ({
 );
 
 export default function HomePage() {
+  const t = useTranslations('Dashboard');
   return (
     <>
       <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
         <SidebarTrigger className='-ml-1' />
-        <h1 className='text-lg font-semibold'>Portfolio Dashboard</h1>
+        <h1 className='text-lg font-semibold'>{t('title')}</h1>
       </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-6xl mx-auto space-y-8'>
@@ -100,45 +102,45 @@ export default function HomePage() {
               <Image src='/profile.webp' alt='Takumi Mizuno' width={96} height={96} className='rounded-full' />
             </div>
             <div>
-              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>Welcome to My Portfolio</h2>
+              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>{t('welcome')}</h2>
               <p className='text-lg text-gray-600 dark:text-gray-300 mt-2'>
-                Web Application Engineer specialized in full-stack development and cloud architecture
+                {t('description')}
               </p>
             </div>
           </section>
 
           {/* Key Metrics */}
           <section>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>Key Metrics</h3>
+            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('keyMetrics')}</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
               <DashboardCard
-                title="Experience"
+                title={t('experience')}
                 value="4+"
                 icon={Calendar}
-                description="Years in software engineering"
+                description={t('experienceDesc')}
                 color="blue"
               />
               <DashboardCard
-                title="Projects"
+                title={t('projects')}
                 value="10+"
                 icon={Code}
-                description="Major projects completed"
+                description={t('projectsDesc')}
                 href="/projects"
                 color="green"
               />
               <DashboardCard
-                title="Articles"
+                title={t('articles')}
                 value="8"
                 icon={FileText}
-                description="Technical articles published"
+                description={t('articlesDesc')}
                 href="/articles"
                 color="purple"
               />
               <DashboardCard
-                title="Talks"
+                title={t('talks')}
                 value="12"
                 icon={MicVocal}
-                description="Event presentations given"
+                description={t('talksDesc')}
                 href="/talks"
                 color="orange"
               />
@@ -147,21 +149,21 @@ export default function HomePage() {
 
           {/* Achievements */}
           <section>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>Recent Achievements</h3>
+            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('recentAchievements')}</h3>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
               <DashboardCard
-                title="Google Cloud Partner"
-                value="Top Engineer 2025"
+                title={t('2025')}
+                value={t('googleCloudPartner')}
                 icon={Trophy}
-                description="Individual recognition award"
+                description={t('individualAward')}
                 href="/awards"
                 color="yellow"
               />
               <DashboardCard
-                title="Good Design Award"
-                value="2024"
+                title={t('2024')}
+                value={t('goodDesignAward')}
                 icon={Award}
-                description="Product design excellence"
+                description={t('productDesign')}
                 href="/awards"
                 color="red"
               />
@@ -170,23 +172,23 @@ export default function HomePage() {
 
           {/* Quick Actions */}
           <section>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>Quick Actions</h3>
+            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('quickActions')}</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               <QuickActionCard
-                title="About Me"
-                description="Learn about my background and experience"
+                title={t('aboutMe')}
+                description={t('aboutMeDesc')}
                 href="/about"
                 icon={User}
               />
               <QuickActionCard
-                title="Technical Skills"
-                description="Explore my technical expertise"
+                title={t('technicalSkills')}
+                description={t('technicalSkillsDesc')}
                 href="/skills"
                 icon={Cpu}
               />
               <QuickActionCard
-                title="View Resume"
-                description="Download my detailed resume"
+                title={t('viewResume')}
+                description={t('viewResumeDesc')}
                 href="https://storage.googleapis.com/takumi-mizuno/resume.pdf"
                 icon={FileText}
                 external
@@ -196,28 +198,28 @@ export default function HomePage() {
 
           {/* Latest Activities */}
           <section>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>Latest Activities</h3>
+            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('latestActivities')}</h3>
             <div className='bg-white dark:bg-gray-800 rounded-lg p-6 border'>
               <div className='space-y-4'>
                 <div className='flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg'>
                   <Award className='h-5 w-5 text-blue-600 dark:text-blue-400' />
                   <div>
-                    <p className='font-medium text-gray-900 dark:text-gray-100'>Google Cloud Partner Top Engineer 2025 Award</p>
-                    <p className='text-sm text-gray-600 dark:text-gray-300'>Received individual recognition for cloud architecture excellence</p>
+                    <p className='font-medium text-gray-900 dark:text-gray-100'>{t('googleCloudAward')}</p>
+                    <p className='text-sm text-gray-600 dark:text-gray-300'>{t('googleCloudAwardDesc')}</p>
                   </div>
                 </div>
                 <div className='flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg'>
                   <FileText className='h-5 w-5 text-green-600 dark:text-green-400' />
                   <div>
-                    <p className='font-medium text-gray-900 dark:text-gray-100'>Published: OpenTelemetry+Go Article</p>
-                    <p className='text-sm text-gray-600 dark:text-gray-300'>Technical article about distributed tracing with special recognition</p>
+                    <p className='font-medium text-gray-900 dark:text-gray-100'>{t('publishedArticle')}</p>
+                    <p className='text-sm text-gray-600 dark:text-gray-300'>{t('publishedArticleDesc')}</p>
                   </div>
                 </div>
                 <div className='flex items-center gap-3 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg'>
                   <TrendingUp className='h-5 w-5 text-purple-600 dark:text-purple-400' />
                   <div>
-                    <p className='font-medium text-gray-900 dark:text-gray-100'>Career Transition</p>
-                    <p className='text-sm text-gray-600 dark:text-gray-300'>Started new role focusing on AI text editor development</p>
+                    <p className='font-medium text-gray-900 dark:text-gray-100'>{t('careerTransition')}</p>
+                    <p className='text-sm text-gray-600 dark:text-gray-300'>{t('careerTransitionDesc')}</p>
                   </div>
                 </div>
               </div>

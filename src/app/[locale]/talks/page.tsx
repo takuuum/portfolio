@@ -1,13 +1,14 @@
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { MicVocal, Calendar, Users, ExternalLink, MapPin, Clock } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
-const TalkCard = ({ 
-  title, 
-  event, 
-  year, 
+const TalkCard = ({
+  title,
+  event,
+  year,
   month,
-  description, 
+  description,
   link,
   attendees,
   venue = "Online"
@@ -21,6 +22,7 @@ const TalkCard = ({
   attendees?: number;
   venue?: string;
 }) => {
+  const t = useTranslations('Talks');
   return (
     <div className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border transition-all hover:shadow-lg'>
       <div className='flex items-start gap-4'>
@@ -48,7 +50,7 @@ const TalkCard = ({
                   {attendees && (
                     <div className='flex items-center gap-1'>
                       <Users className='h-4 w-4' />
-                      <span>{attendees.toLocaleString()} attendees</span>
+                      <span>{attendees.toLocaleString()} {t('attendees')}</span>
                     </div>
                   )}
                 </div>
@@ -60,7 +62,7 @@ const TalkCard = ({
               rel='noopener noreferrer'
               className='flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm flex-shrink-0'
             >
-              View Talk
+              {t('viewEvent')}
               <ExternalLink className='h-4 w-4' />
             </Link>
           </div>
@@ -74,29 +76,30 @@ const TalkCard = ({
 };
 
 export default function TalksPage() {
+  const t = useTranslations('Talks');
   return (
     <>
       <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
         <SidebarTrigger className='-ml-1' />
-        <h1 className='text-lg font-semibold'>Event Talks</h1>
+        <h1 className='text-lg font-semibold'>{t('title')}</h1>
       </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-4xl mx-auto space-y-8'>
-          
+
           {/* Header Section */}
           <section className='text-center space-y-4'>
             <div className='flex justify-center'>
               <MicVocal className='h-16 w-16 text-blue-600' />
             </div>
             <div>
-              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>Event Talks</h2>
+              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>{t('eventTalks')}</h2>
               <p className='text-lg text-gray-600 dark:text-gray-300 mt-2'>
-                Speaking engagements at technical conferences and events
+                {t('speakingEngagements')}
               </p>
               <div className='mt-4 inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-lg'>
                 <Users className='h-5 w-5 text-blue-600 dark:text-blue-400' />
                 <span className='text-blue-800 dark:text-blue-200 font-semibold'>
-                  12 talks • 3,342 total attendees
+                  12 {t('totalTalksAndAttendees')} 3,342
                 </span>
               </div>
             </div>
@@ -106,7 +109,7 @@ export default function TalksPage() {
           <section>
             <h3 className='text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2'>
               <MicVocal className='h-6 w-6 text-blue-600' />
-              Featured Talks
+              {t('featuredTalks')}
             </h3>
             <div className='space-y-6'>
               <TalkCard
@@ -119,7 +122,7 @@ export default function TalksPage() {
                 attendees={2000}
                 venue="Tokyo"
               />
-              
+
               <TalkCard
                 title="Start CI/CD Casually with DORA Metrics - What You Can Do Right Now!"
                 event="DevOpsDays Tokyo 2024"
@@ -130,7 +133,7 @@ export default function TalksPage() {
                 attendees={500}
                 venue="Tokyo"
               />
-              
+
               <TalkCard
                 title="Is Cloud Native Really Necessary? Migration Patterns and Success Points"
                 event="CloudNative Days Summer 2024"
@@ -141,7 +144,7 @@ export default function TalksPage() {
                 attendees={800}
                 venue="Tokyo"
               />
-              
+
               <TalkCard
                 title="OpenTelemetry for Go Complete Guide - Can You Instrument Tracing as Naturally as Breathing?"
                 event="Cloud Operator Days Tokyo 2024"
@@ -159,25 +162,25 @@ export default function TalksPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2'>
               <Users className='h-5 w-5 text-blue-600' />
-              Speaking Experience
+              {t('speakingExperience')}
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
               <div className='text-center'>
                 <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>12</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>Total Talks</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('totalTalks')}</div>
               </div>
               <div className='text-center'>
                 <div className='text-3xl font-bold text-green-600 dark:text-green-400 mb-2'>3,342</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>Total Attendees</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('totalAttendees')}</div>
               </div>
               <div className='text-center'>
                 <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>4+</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>Major Conferences</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('majorConferences')}</div>
               </div>
             </div>
-            
+
             <div className='mt-6 space-y-4'>
-              <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Topics Covered</h4>
+              <h4 className='font-semibold text-gray-900 dark:text-gray-100'>{t('topicsCovered')}</h4>
               <div className='flex flex-wrap gap-2'>
                 <span className='px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm'>
                   Domain-Driven Design

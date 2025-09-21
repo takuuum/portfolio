@@ -1,5 +1,6 @@
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Code, Users, Zap, MessageSquare, Star, TrendingUp, Database, Cloud, Cpu, Brain, BarChart3 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const StarRating = ({ level }: { level: number }) => {
   return (
@@ -42,11 +43,12 @@ const SkillCard = ({ icon: Icon, title, level, description }: {
 );
 
 export default function SkillsPage() {
+  const t = useTranslations('Skills');
   return (
     <>
       <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
         <SidebarTrigger className='-ml-1' />
-        <h1 className='text-lg font-semibold'>Skills</h1>
+        <h1 className='text-lg font-semibold'>{t('title')}</h1>
       </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-4xl mx-auto space-y-8'>
@@ -57,9 +59,9 @@ export default function SkillsPage() {
               <Cpu className='h-16 w-16 text-blue-600' />
             </div>
             <div>
-              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>Skills & Expertise</h2>
+              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>{t('title')}</h2>
               <p className='text-lg text-gray-600 dark:text-gray-300 mt-2'>
-                Technical skills and professional capabilities across software engineering
+                {t('subtitle')}
               </p>
             </div>
           </section>
@@ -68,7 +70,7 @@ export default function SkillsPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2'>
               <Users className='h-5 w-5' />
-              Core Strengths & Experience
+              {t('coreStrengths')}
             </h3>
             
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
@@ -76,7 +78,7 @@ export default function SkillsPage() {
               <div className='space-y-4'>
                 <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2'>
                   <TrendingUp className='h-5 w-5 text-blue-600' />
-                  Leadership
+                  {t('leadership')}
                 </h4>
                 <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-300'>
                   <li>" Tech Lead for 30-person project (3 stakeholder companies)</li>
@@ -90,7 +92,7 @@ export default function SkillsPage() {
               <div className='space-y-4'>
                 <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2'>
                   <MessageSquare className='h-5 w-5 text-green-600' />
-                  Communication
+                  {t('communication')}
                 </h4>
                 <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-300'>
                   <li>" Client negotiation experience (7 projects)</li>
@@ -103,7 +105,7 @@ export default function SkillsPage() {
               <div className='space-y-4'>
                 <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2'>
                   <Zap className='h-5 w-5 text-purple-600' />
-                  Learning Speed
+                  {t('learningSpeed')}
                 </h4>
                 <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-300'>
                   <li>" Promoted to Senior Specialist (top 25% of ~300 engineers) as youngest member</li>
@@ -117,12 +119,12 @@ export default function SkillsPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2'>
               <Code className='h-5 w-5' />
-              Technical Skills
+              {t('technicalSkills')}
             </h3>
             
             {/* Frontend */}
             <div className='mb-8'>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>Frontend</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('frontend')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <SkillCard icon={Code} title="HTML, CSS, TypeScript" level={3} />
                 <SkillCard icon={Code} title="React, Next.js" level={3} />
@@ -132,7 +134,7 @@ export default function SkillsPage() {
             
             {/* Backend */}
             <div className='mb-8'>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>Backend</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('backend')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <SkillCard icon={Code} title="Golang" level={5} />
                 <SkillCard icon={Code} title="Node.js, NestJS" level={3} />
@@ -147,7 +149,7 @@ export default function SkillsPage() {
             
             {/* Infrastructure */}
             <div className='mb-8'>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>Infrastructure & Middleware</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('infrastructure')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <SkillCard icon={Cloud} title="Google Cloud" level={4} />
                 <SkillCard icon={Database} title="MySQL, PostgreSQL" level={3} />
@@ -157,7 +159,7 @@ export default function SkillsPage() {
             
             {/* DevOps */}
             <div className='mb-8'>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>DevOps</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('devops')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <SkillCard icon={TrendingUp} title="CI/CD" level={4} />
                 <SkillCard icon={TrendingUp} title="Observability" level={3} />
@@ -166,7 +168,7 @@ export default function SkillsPage() {
             
             {/* Architecture */}
             <div className='mb-8'>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>Architecture</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('architecture')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <SkillCard icon={Cpu} title="DDD" level={5} />
                 <SkillCard icon={Cpu} title="Microservices" level={4} />
@@ -176,7 +178,7 @@ export default function SkillsPage() {
             
             {/* AI */}
             <div className='mb-8'>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>AI</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('ai')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <SkillCard icon={Brain} title="GenAI Application" level={3} />
               </div>
@@ -187,28 +189,28 @@ export default function SkillsPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2'>
               <BarChart3 className='h-5 w-5 text-blue-600' />
-              Skill Level Guide
+              {t('skillLevelGuide')}
             </h3>
             <div className='space-y-2 text-sm'>
               <div className='flex items-center gap-3'>
                 <StarRating level={5} />
-                <span className='text-gray-700 dark:text-gray-300'>Capable of reviewing and educating others</span>
+                <span className='text-gray-700 dark:text-gray-300'>{t('level5')}</span>
               </div>
               <div className='flex items-center gap-3'>
                 <StarRating level={4} />
-                <span className='text-gray-700 dark:text-gray-300'>Capable of reviewing others</span>
+                <span className='text-gray-700 dark:text-gray-300'>{t('level4')}</span>
               </div>
               <div className='flex items-center gap-3'>
                 <StarRating level={3} />
-                <span className='text-gray-700 dark:text-gray-300'>Capable of implementing independently</span>
+                <span className='text-gray-700 dark:text-gray-300'>{t('level3')}</span>
               </div>
               <div className='flex items-center gap-3'>
                 <StarRating level={2} />
-                <span className='text-gray-700 dark:text-gray-300'>Capable of implementing independently (maintenance level)</span>
+                <span className='text-gray-700 dark:text-gray-300'>{t('level2')}</span>
               </div>
               <div className='flex items-center gap-3'>
                 <StarRating level={1} />
-                <span className='text-gray-700 dark:text-gray-300'>Capable of implementing with support</span>
+                <span className='text-gray-700 dark:text-gray-300'>{t('level1')}</span>
               </div>
             </div>
           </section>

@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/i18n/routing';
 import {
   Sidebar,
   SidebarContent,
@@ -19,23 +18,27 @@ import {
 import { Home, User, FileText, ExternalLink, StickyNote, Trophy, Code, MicVocal, Cpu } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { LocaleSwitcher } from '@/components/locale-switcher';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const t = useTranslations('Navigation');
 
   const navigationItems = [
-    { href: '/', label: 'Home', icon: Home },
-    { href: '/about', label: 'About', icon: User },
-    { href: '/skills', label: 'Skills', icon: Cpu },
-    { href: '/projects', label: 'Projects', icon: Code },
-    { href: '/articles', label: 'Articles', icon: FileText },
-    { href: '/talks', label: 'Event Talks', icon: MicVocal },
-    { href: '/awards', label: 'Awards & Certifications', icon: Trophy },
+    { href: '/', label: t('home'), icon: Home },
+    { href: '/about', label: t('about'), icon: User },
+    { href: '/skills', label: t('skills'), icon: Cpu },
+    { href: '/projects', label: t('projects'), icon: Code },
+    { href: '/articles', label: t('articles'), icon: FileText },
+    { href: '/talks', label: t('talks'), icon: MicVocal },
+    { href: '/awards', label: t('awards'), icon: Trophy },
   ];
 
   const linkItems = [
-    { href: 'https://github.com/takuuum', label: 'Github', icon: FaGithub },
-    { href: 'https://note.com/mizutaku0705', label: 'note', icon: StickyNote },
+    { href: 'https://github.com/takuuum', label: t('github'), icon: FaGithub },
+    { href: 'https://note.com/mizutaku0705', label: t('note'), icon: StickyNote },
   ];
 
   return (
@@ -47,9 +50,9 @@ export function AppSidebar() {
             alt='Logo'
             width={24}
             height={24}
-            className='dark:invert rounded-full'
+            className='rounded-full'
           />
-          <span className='font-semibold'>Portfolio</span>
+          <span className='font-semibold'>Takumi Mizuno</span>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -97,9 +100,11 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className='flex items-center justify-between px-2 py-1'>
-          <span className='text-xs text-muted-foreground'></span>
-          <ThemeToggle />
+        <div className='flex flex-col gap-2 p-2'>
+          <div className='flex items-center justify-end'>
+            <LocaleSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
       </SidebarFooter>
     </Sidebar>

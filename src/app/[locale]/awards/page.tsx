@@ -1,14 +1,15 @@
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Trophy, Award, ExternalLink, Calendar, Building2, FileText, GraduationCap, Cloud, Code } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
-const AwardCard = ({ 
-  title, 
-  year, 
-  organization, 
-  description, 
-  link, 
-  color = 'yellow' 
+const AwardCard = ({
+  title,
+  year,
+  organization,
+  description,
+  link,
+  color = 'yellow'
 }: {
   title: string;
   year: string;
@@ -17,6 +18,7 @@ const AwardCard = ({
   link: string;
   color?: 'yellow' | 'orange' | 'blue';
 }) => {
+  const t = useTranslations('Awards');
   const colorClasses = {
     yellow: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800',
     orange: 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800',
@@ -56,7 +58,7 @@ const AwardCard = ({
               rel='noopener noreferrer'
               className='flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm'
             >
-              View Award
+              {t('viewAward')}
               <ExternalLink className='h-4 w-4' />
             </Link>
           </div>
@@ -69,11 +71,11 @@ const AwardCard = ({
   );
 };
 
-const CertificationCard = ({ 
-  title, 
-  issuer, 
-  icon: Icon, 
-  color = 'blue' 
+const CertificationCard = ({
+  title,
+  issuer,
+  icon: Icon,
+  color = 'blue'
 }: {
   title: string;
   issuer: string;
@@ -105,24 +107,25 @@ const CertificationCard = ({
 };
 
 export default function AwardsPage() {
+  const t = useTranslations('Awards');
   return (
     <>
       <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
         <SidebarTrigger className='-ml-1' />
-        <h1 className='text-lg font-semibold'>Awards & Certifications</h1>
+        <h1 className='text-lg font-semibold'>{t('title')}</h1>
       </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-4xl mx-auto space-y-8'>
-          
+
           {/* Header Section */}
           <section className='text-center space-y-4'>
             <div className='flex justify-center'>
               <Award className='h-16 w-16 text-yellow-500' />
             </div>
             <div>
-              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>Awards & Certifications</h2>
+              <h2 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>{t('awardsAndCertifications')}</h2>
               <p className='text-lg text-gray-600 dark:text-gray-300 mt-2'>
-                Recognition for technical excellence and professional certifications
+                {t('recognitionForExcellence')}
               </p>
             </div>
           </section>
@@ -131,7 +134,7 @@ export default function AwardsPage() {
           <section>
             <h3 className='text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2'>
               <Trophy className='h-6 w-6 text-yellow-600' />
-              Awards
+              {t('awards')}
             </h3>
             <div className='space-y-6'>
               <AwardCard
@@ -142,7 +145,7 @@ export default function AwardsPage() {
                 link="https://cloud.google.com/blog/ja/topics/partners/2025-google-cloud-partner-top-engineer-award-program"
                 color="blue"
               />
-              
+
               <AwardCard
                 title="Good Design Award 2024"
                 year="2024"
@@ -151,6 +154,15 @@ export default function AwardsPage() {
                 link="https://www.g-mark.org/gallery/winners/21878"
                 color="orange"
               />
+
+              <AwardCard
+                title="Zenn記事投稿キャンペーン「Google Cloud」特別賞"
+                year="2024"
+                organization="Zenn（クラスメソッド株式会社）"
+                description="Zenn初の記事投稿キャンペーン「Google Cloud」にて特別賞（ユニークな取り組みの記事）を受賞。OpenTelemetry+Go 計装サンプル大全 with Cloud Trace ~意外なつまづきポイントを添えて~ で、オライリーの書籍「オブザーバビリティ・エンジニアリング」でも紹介されているOpenTelemetryを、Go言語とGoogle Cloudを例に実践的に導入する記事として評価されました。読者がOpenTelemetryを取り入れるきっかけとなる記事として特別賞に選出されました。"
+                link="https://zenn.dev/contests/gc24?tab=overview"
+                color="blue"
+              />
             </div>
           </section>
 
@@ -158,12 +170,12 @@ export default function AwardsPage() {
           <section>
             <h3 className='text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2'>
               <FileText className='h-6 w-6 text-blue-600' />
-              Certifications
+              {t('certifications')}
             </h3>
-            
+
             {/* Technical Certifications */}
             <div className='mb-6'>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>Technical Certifications</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('technicalCertifications')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <CertificationCard
                   title="Google Certified Professional Cloud Architect"
@@ -200,7 +212,7 @@ export default function AwardsPage() {
 
             {/* Other Certifications */}
             <div>
-              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>Other Certifications</h4>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('otherCertifications')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <CertificationCard
                   title="小学校教諭免許"
@@ -228,25 +240,34 @@ export default function AwardsPage() {
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2'>
               <Trophy className='h-5 w-5 text-yellow-600' />
-              Award Significance
+              {t('awardSignificance')}
             </h3>
             <div className='space-y-4'>
               <div>
                 <h4 className='font-semibold text-gray-900 dark:text-gray-100 mb-2'>Google Cloud Partner Top Engineer 2025</h4>
                 <p className='text-gray-700 dark:text-gray-300 text-sm'>
-                  This prestigious recognition highlights technical leadership in the Google Cloud ecosystem, 
-                  demonstrating expertise in cloud architecture, implementation, and customer success. 
-                  The award emphasizes not only technical skills but also the ability to drive innovation 
+                  This prestigious recognition highlights technical leadership in the Google Cloud ecosystem,
+                  demonstrating expertise in cloud architecture, implementation, and customer success.
+                  The award emphasizes not only technical skills but also the ability to drive innovation
                   and deliver value to clients through Google Cloud technologies.
                 </p>
               </div>
               <div>
                 <h4 className='font-semibold text-gray-900 dark:text-gray-100 mb-2'>Good Design Award 2024</h4>
                 <p className='text-gray-700 dark:text-gray-300 text-sm'>
-                  The Good Design Award is one of Japan's most prestigious design awards, 
-                  recognizing products and services that contribute to society through excellent design. 
-                  This award acknowledges the holistic approach to product development, 
+                  The Good Design Award is one of Japan's most prestigious design awards,
+                  recognizing products and services that contribute to society through excellent design.
+                  This award acknowledges the holistic approach to product development,
                   combining technical engineering excellence with product management vision.
+                </p>
+              </div>
+              <div>
+                <h4 className='font-semibold text-gray-900 dark:text-gray-100 mb-2'>Zenn記事投稿キャンペーン「Google Cloud」特別賞</h4>
+                <p className='text-gray-700 dark:text-gray-300 text-sm'>
+                  Zenn初の記事投稿キャンペーンにおいて設けられた3つの賞のうちの1つ。
+                  Google Cloudをテーマとした記事投稿キャンペーンで、投稿記事58本の中から
+                  厳正な審査により選出される希少性の高い賞です。
+                  技術記事を通じたエンジニアコミュニティへの貢献が評価されました。
                 </p>
               </div>
             </div>
