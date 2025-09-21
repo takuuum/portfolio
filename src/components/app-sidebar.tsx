@@ -38,11 +38,6 @@ export function AppSidebar() {
     { href: '/awards', label: t('awards'), icon: Trophy },
   ];
 
-  const linkItems = [
-    { href: 'https://github.com/takuuum', label: t('github'), icon: FaGithub },
-    { href: 'https://note.com/mizutaku0705', label: t('note'), icon: StickyNote },
-  ];
-
   return (
     <Sidebar>
       <SidebarHeader>
