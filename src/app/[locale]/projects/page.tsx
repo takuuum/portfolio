@@ -1,4 +1,3 @@
-import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Code, ExternalLink, User, Layers, Tag } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
@@ -107,10 +106,6 @@ export default function ProjectsPage() {
   const t = useTranslations('Projects');
   return (
     <>
-      <header className='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
-        <SidebarTrigger className='-ml-1' />
-        <h1 className='text-lg font-semibold'>{t('title')}</h1>
-      </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-4xl mx-auto space-y-8'>
 

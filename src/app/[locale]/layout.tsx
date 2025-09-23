@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import '../globals.css';
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/app-sidebar';
 import { ThemeProvider } from '@/components/theme-provider';
 import {NextIntlClientProvider} from 'next-intl';
@@ -57,6 +57,10 @@ export default async function LocaleLayout({
             <SidebarProvider>
               <AppSidebar />
               <SidebarInset>
+                <div className='md:hidden fixed top-4 left-4 z-50'>
+                  <SidebarTrigger className='-ml-1' />
+                </div>
+                <header className='h-10' />
                 {children}
               </SidebarInset>
             </SidebarProvider>
