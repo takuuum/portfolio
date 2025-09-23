@@ -107,6 +107,88 @@ const CertificationCard = ({
 
 export default function AwardsPage() {
   const t = useTranslations('Awards');
+
+  const awards = [
+    {
+      title: "Google Cloud Partner Top Engineer 2025",
+      year: "2025",
+      organization: "Google Cloud",
+      description: "Google Cloud パートナー企業の中で選出されるトップエンジニアとしての個人表彰。この賞は、卓越した技術的専門知識、革新性、Google Cloud エコシステムへの貢献を認定するものであり、技術スキル、顧客への影響、コミュニティへの参加に基づいて選出される。",
+      link: "https://cloud.google.com/blog/ja/topics/partners/2025-google-cloud-partner-top-engineer-award-program",
+      color: "blue" as const
+    },
+    {
+      title: "2024年度グッドデザイン賞",
+      year: "2024",
+      organization: "公益財団法人日本デザイン振興会",
+      description: "プロダクトマネージャーとエンジニア両方の役割を担当したサービスでの受賞。グッドデザイン賞は、デザインの優秀性、革新性、ユーザーエクスペリエンスを通じて社会の向上に貢献する優れたデザインを表彰する。サービスのデザイン性と社会性が評価され受賞に至った。",
+      link: "https://www.g-mark.org/gallery/winners/21878",
+      color: "orange" as const
+    },
+    {
+      title: "Zenn記事投稿キャンペーン「Google Cloud」特別賞",
+      year: "2024",
+      organization: "Zenn（クラスメソッド株式会社）",
+      description: "Zenn初の記事投稿キャンペーン「Google Cloud」にて特別賞（ユニークな取り組みの記事）を受賞。オライリーの書籍「オブザーバビリティ・エンジニアリング」でも紹介されているOpenTelemetryを、Go言語とGoogle Cloudを例に実践的に導入する記事として評価された。",
+      link: "https://zenn.dev/contests/gc24?tab=overview",
+      color: "blue" as const
+    }
+  ];
+
+  const technicalCertifications = [
+    {
+      title: "Google Certified Professional Cloud Developer",
+      issuer: "Google Cloud",
+      icon: Code,
+      color: "blue" as const
+    },
+    {
+      title: "Google Certified Professional Cloud Architect",
+      issuer: "Google Cloud",
+      icon: Cloud,
+      color: "blue" as const
+    },
+    {
+      title: "Google Certified Professional Data Engineer",
+      issuer: "Google Cloud",
+      icon: Cloud,
+      color: "blue" as const
+    },
+    {
+      title: "Certified Kubernetes Application Developer",
+      issuer: "Cloud Native Computing Foundation",
+      icon: Code,
+      color: "purple" as const
+    },
+    {
+      title: "基本情報技術者試験合格",
+      issuer: "情報処理推進機構 (IPA)",
+      icon: FileText,
+      color: "green" as const
+    }
+  ];
+
+  const otherCertifications = [
+    {
+      title: "小学校教諭免許",
+      issuer: "文部科学省",
+      icon: GraduationCap,
+      color: "red" as const
+    },
+    {
+      title: "特別支援学校教諭免許",
+      issuer: "文部科学省",
+      icon: GraduationCap,
+      color: "red" as const
+    },
+    {
+      title: "社会教育士",
+      issuer: "文部科学省",
+      icon: GraduationCap,
+      color: "red" as const
+    }
+  ];
+
   return (
     <>
       <div className='flex flex-1 flex-col gap-6 p-6'>
@@ -132,32 +214,17 @@ export default function AwardsPage() {
               {t('awards')}
             </h3>
             <div className='space-y-6'>
-              <AwardCard
-                title="Google Cloud Partner Top Engineer 2025"
-                year="2025"
-                organization="Google Cloud"
-                description="Google Cloud パートナー企業の中で選出されるトップエンジニアとしての個人表彰。この賞は、卓越した技術的専門知識、革新性、Google Cloud エコシステムへの貢献を認定するものであり、技術スキル、顧客への影響、コミュニティへの参加に基づいて選出される。"
-                link="https://cloud.google.com/blog/ja/topics/partners/2025-google-cloud-partner-top-engineer-award-program"
-                color="blue"
-              />
-
-              <AwardCard
-                title="2024年度グッドデザイン賞"
-                year="2024"
-                organization="公益財団法人日本デザイン振興会"
-                description="プロダクトマネージャーとエンジニア両方の役割を担当したサービスでの受賞。グッドデザイン賞は、デザインの優秀性、革新性、ユーザーエクスペリエンスを通じて社会の向上に貢献する優れたデザインを表彰する。サービスのデザイン性と社会性が評価され受賞に至った。"
-                link="https://www.g-mark.org/gallery/winners/21878"
-                color="orange"
-              />
-
-              <AwardCard
-                title="Zenn記事投稿キャンペーン「Google Cloud」特別賞"
-                year="2024"
-                organization="Zenn（クラスメソッド株式会社）"
-                description="Zenn初の記事投稿キャンペーン「Google Cloud」にて特別賞（ユニークな取り組みの記事）を受賞。オライリーの書籍「オブザーバビリティ・エンジニアリング」でも紹介されているOpenTelemetryを、Go言語とGoogle Cloudを例に実践的に導入する記事として評価された。"
-                link="https://zenn.dev/contests/gc24?tab=overview"
-                color="blue"
-              />
+              {awards.map((award, index) => (
+                <AwardCard
+                  key={index}
+                  title={award.title}
+                  year={award.year}
+                  organization={award.organization}
+                  description={award.description}
+                  link={award.link}
+                  color={award.color}
+                />
+              ))}
             </div>
           </section>
 
@@ -172,36 +239,15 @@ export default function AwardsPage() {
             <div className='mb-6'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('technicalCertifications')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <CertificationCard
-                  title="Google Certified Professional Cloud Developer"
-                  issuer="Google Cloud"
-                  icon={Code}
-                  color="blue"
-                />
-                <CertificationCard
-                  title="Google Certified Professional Cloud Architect"
-                  issuer="Google Cloud"
-                  icon={Cloud}
-                  color="blue"
-                />
-                <CertificationCard
-                  title="Google Certified Professional Data Engineer"
-                  issuer="Google Cloud"
-                  icon={Cloud}
-                  color="blue"
-                />
-                <CertificationCard
-                  title="Certified Kubernetes Application Developer"
-                  issuer="Cloud Native Computing Foundation"
-                  icon={Code}
-                  color="purple"
-                />
-                <CertificationCard
-                  title="基本情報技術者試験合格"
-                  issuer="情報処理推進機構 (IPA)"
-                  icon={FileText}
-                  color="green"
-                />
+                {technicalCertifications.map((cert, index) => (
+                  <CertificationCard
+                    key={index}
+                    title={cert.title}
+                    issuer={cert.issuer}
+                    icon={cert.icon}
+                    color={cert.color}
+                  />
+                ))}
               </div>
             </div>
 
@@ -209,24 +255,15 @@ export default function AwardsPage() {
             <div>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('otherCertifications')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <CertificationCard
-                  title="小学校教諭免許"
-                  issuer="文部科学省"
-                  icon={GraduationCap}
-                  color="red"
-                />
-                <CertificationCard
-                  title="特別支援学校教諭免許"
-                  issuer="文部科学省"
-                  icon={GraduationCap}
-                  color="red"
-                />
-                <CertificationCard
-                  title="社会教育士"
-                  issuer="文部科学省"
-                  icon={GraduationCap}
-                  color="red"
-                />
+                {otherCertifications.map((cert, index) => (
+                  <CertificationCard
+                    key={index}
+                    title={cert.title}
+                    issuer={cert.issuer}
+                    icon={cert.icon}
+                    color={cert.color}
+                  />
+                ))}
               </div>
             </div>
           </section>

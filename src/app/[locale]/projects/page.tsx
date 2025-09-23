@@ -104,6 +104,61 @@ const ProjectCard = ({
 
 export default function ProjectsPage() {
   const t = useTranslations('Projects');
+
+  const projects = [
+    {
+      title: "AIテキストエディタ「Xaris」の開発/運用",
+      description: "プロライター向けのテキスト編集プラットフォームの開発/運用を行いました。AIベースのライティング支援、文字起こし機能、Notionベースのドキュメント機能、リアルタイムの共同編集などを提供しています。私は主に開発ロードマップの策定、SveltekitからNext.jsへのリプレイスなどを担当していました。",
+      role: "Product Manager, Frontend Architect/Developer, Backend Architect/Developer",
+      techStack: ['Next.js', 'React', 'Node.js', 'Vercel AI SDK', 'PostgreSQL', 'Cloudflare'],
+      labels: ['ToC', 'Frontend', 'Backend'],
+      url: "https://zenn.dev/studioeurygraph/articles/e636fd44517aed"
+    },
+    {
+      title: "某コンビニのネットプリントシステムのモダナイゼーション開発",
+      description: "某コンビニのネットプリントサービス（約250万MAU）のモダナイゼーション案件にてテックリードを担当し、ビジネス要件見直し、JavaからGolangへのリプレイス、マイクロサービス化、サーバレス化、SRE改善などのリードを行いました。",
+      role: "Tech Lead, Project Leader, Backend Architect/Developer, SRE Engineer",
+      techStack: ['Golang', 'PostgreSQL', 'Google Cloud', 'DDD', 'Microservices'],
+      labels: ['ToC', 'Backend', 'SRE'],
+      url: "https://youtu.be/fC8E3cSdbFw?si=kq0NJL8ZfnlM1l_B&t=1032"
+    },
+    {
+      title: "書店サービス「思い出書店」の開発/運用",
+      description: "QRコードが印刷された帯とLINEアプリケーションによる、オンライン・オフライン連動型の古書交換サービスの開発/運用を行いました。 カフェや公民館などの交換拠点に設置された帯に、持ちこんだ本の思い出を書き、QRコードからシステムに登録。その本を寄付、または拠点の他の本と交換できる仕組みです。私は開発初期からジョインし、プロダクト設計から開発全般まで幅広く担当していました。",
+      role: "Product Manager, Frontend Architect/Developer, Backend Architect/Developer",
+      techStack: ['Nuxt', 'Vue.js', 'Node.js', 'NestJS', 'Golang', 'NoSQL', 'Google Cloud'],
+      labels: ['ToC', 'Frontend', 'Backend', 'グッドデザイン賞受賞'],
+      url: "https://www.g-mark.org/gallery/winners/21878"
+    },
+    {
+      title: "トヨタ自動車の生産現場におけるデータの利活用とクラウド移行のPoC",
+      description: "トヨタ自動車の工場現場において「現場で生成されるデータの利活用」や「オンプレミスからのクラウド移行」等ができないか、調査や検証を行いました。私は主に工場カメラをストリーミングで転送しクラウドに保存するデータパイプライン構築のPoCを担当しました。",
+      role: "Backend Architect/Developer, Cloud Architect/Developer",
+      techStack: ['Python', 'Google Cloud'],
+      labels: ['ToB', 'Backend', 'Infrastructure', 'Data Pipeline']
+    },
+    {
+      title: "製造会社における価格管理システムの開発",
+      description: "価格管理システムのアプリケーション開発と複数システムデータを連携するデータパイプライン開発を行いました。",
+      role: "Project Leader, Backend Architect/Developer",
+      techStack: ['Python', 'MySQL', 'Google Cloud', 'DDD', 'Microservices'],
+      labels: ['ToB', 'Backend', 'Data Pipeline']
+    },
+    {
+      title: "勤怠管理システムの海外対応",
+      description: "海外法人向けに提供する勤怠管理システムのAPI開発を行いました。",
+      role: "Project Leader, Backend Architect/Developer, SRE Engineer",
+      techStack: ['Golang', 'MySQL', 'Google Cloud', 'DDD'],
+      labels: ['ToB', 'Backend', 'SRE']
+    }
+  ];
+
+  const projectStats = [
+    { value: "20+", color: "text-blue-600 dark:text-blue-400", label: t('majorProjects') },
+    { value: "20+", color: "text-green-600 dark:text-green-400", label: t('technologiesUsed') },
+    { value: "8", color: "text-teal-600 dark:text-teal-400", label: t('plProjects') }
+  ];
+
   return (
     <>
       <div className='flex flex-1 flex-col gap-6 p-6'>
@@ -124,56 +179,17 @@ export default function ProjectsPage() {
 
           {/* Projects List */}
           <section className='space-y-6'>
-            <ProjectCard
-              title="AIテキストエディタ「Xaris」の開発/運用"
-              description="プロライター向けのテキスト編集プラットフォームの開発/運用を行いました。AIベースのライティング支援、文字起こし機能、Notionベースのドキュメント機能、リアルタイムの共同編集などを提供しています。私は主に開発ロードマップの策定、SveltekitからNext.jsへのリプレイスなどを担当していました。"
-              role="Product Manager, Frontend Architect/Developer, Backend Architect/Developer"
-              techStack={['Next.js', 'React', 'Node.js', 'Vercel AI SDK', 'PostgreSQL', 'Cloudflare']}
-              labels={['ToC', 'Frontend', 'Backend']}
-              url="https://zenn.dev/studioeurygraph/articles/e636fd44517aed"
-            />
-
-            <ProjectCard
-              title="某コンビニのネットプリントシステムのモダナイゼーション開発"
-              description="某コンビニのネットプリントサービス（約250万MAU）のモダナイゼーション案件にてテックリードを担当し、ビジネス要件見直し、JavaからGolangへのリプレイス、マイクロサービス化、サーバレス化、SRE改善などのリードを行いました。"
-              role="Tech Lead, Project Leader, Backend Architect/Developer, SRE Engineer"
-              techStack={['Golang', 'PostgreSQL', 'Google Cloud', 'DDD', 'Microservices']}
-              labels={['ToC', 'Backend', 'SRE']}
-              url="https://youtu.be/fC8E3cSdbFw?si=kq0NJL8ZfnlM1l_B&t=1032"
-            />
-
-            <ProjectCard
-              title="書店サービス「思い出書店」の開発/運用"
-              description="QRコードが印刷された帯とLINEアプリケーションによる、オンライン・オフライン連動型の古書交換サービスの開発/運用を行いました。 カフェや公民館などの交換拠点に設置された帯に、持ちこんだ本の思い出を書き、QRコードからシステムに登録。その本を寄付、または拠点の他の本と交換できる仕組みです。私は開発初期からジョインし、プロダクト設計から開発全般まで幅広く担当していました。"
-              role="Product Manager, Frontend Architect/Developer, Backend Architect/Developer"
-              techStack={['Nuxt', 'Vue.js', 'Node.js', 'NestJS', 'Golang', 'NoSQL', 'Google Cloud']}
-              labels={['ToC', 'Frontend', 'Backend', 'グッドデザイン賞受賞']}
-              url="https://www.g-mark.org/gallery/winners/21878"
-            />
-
-            <ProjectCard
-              title="トヨタ自動車の生産現場におけるデータの利活用とクラウド移行のPoC"
-              description="トヨタ自動車の工場現場において「現場で生成されるデータの利活用」や「オンプレミスからのクラウド移行」等ができないか、調査や検証を行いました。私は主に工場カメラをストリーミングで転送しクラウドに保存するデータパイプライン構築のPoCを担当しました。"
-              role="Backend Architect/Developer, Cloud Architect/Developer"
-              techStack={['Python', 'Google Cloud']}
-              labels={['ToB', 'Backend', 'Infrastructure', 'Data Pipeline']}
-            />
-
-            <ProjectCard
-              title="製造会社における価格管理システムの開発"
-              description="価格管理システムのアプリケーション開発と複数システムデータを連携するデータパイプライン開発を行いました。"
-              role="Project Leader, Backend Architect/Developer"
-              techStack={['Python', 'MySQL', 'Google Cloud', 'DDD', 'Microservices']}
-              labels={['ToB', 'Backend', 'Data Pipeline']}
-            />
-
-            <ProjectCard
-              title="勤怠管理システムの海外対応"
-              description="海外法人向けに提供する勤怠管理システムのAPI開発を行いました。"
-              role="Project Leader, Backend Architect/Developer, SRE Engineer"
-              techStack={['Golang', 'MySQL', 'Google Cloud', 'DDD']}
-              labels={['ToB', 'Backend', 'SRE']}
-            />
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                role={project.role}
+                techStack={project.techStack}
+                labels={project.labels}
+                url={project.url}
+              />
+            ))}
           </section>
 
           {/* Project Stats */}
@@ -182,19 +198,13 @@ export default function ProjectsPage() {
               <Tag className='h-5 w-5 text-blue-600' />
               {t('projectOverview')}
             </h3>
-            <div className='grid grid-cols-2 md:grid-cols-5 gap-6'>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>20+</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('majorProjects')}</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-green-600 dark:text-green-400 mb-2'>20+</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('technologiesUsed')}</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-teal-600 dark:text-teal-400 mb-2'>8</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('plProjects')}</div>
-              </div>
+            <div className='grid grid-cols-2 md:grid-cols-3 gap-6'>
+              {projectStats.map((stat, index) => (
+                <div key={index} className='text-center'>
+                  <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
+                  <div className='text-sm text-gray-600 dark:text-gray-400'>{stat.label}</div>
+                </div>
+              ))}
             </div>
 
             <div className='mt-6 space-y-4'>

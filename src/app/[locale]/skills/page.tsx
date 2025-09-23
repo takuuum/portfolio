@@ -43,6 +43,40 @@ const SkillCard = ({ icon: Icon, title, level, description }: {
 
 export default function SkillsPage() {
   const t = useTranslations('Skills');
+
+  const frontendSkills = [
+    { icon: Code, title: "HTML, CSS, TypeScript", level: 3, description: undefined },
+    { icon: Code, title: "React, Next.js", level: 3, description: undefined },
+    { icon: Code, title: "Vue, Nuxt", level: 3, description: undefined }
+  ];
+
+  const backendSkills = [
+    { icon: Code, title: "Golang", level: 5, description: undefined },
+    { icon: Code, title: "Node.js, NestJS", level: 3, description: undefined },
+    { icon: Code, title: "Python", level: 3, description: "Haven't used for 2 years, need to relearn" }
+  ];
+
+  const infrastructureSkills = [
+    { icon: Cloud, title: "Google Cloud", level: 4, description: undefined },
+    { icon: Database, title: "MySQL, PostgreSQL", level: 3, description: undefined },
+    { icon: Database, title: "NoSQL", level: 3, description: undefined }
+  ];
+
+  const devopsSkills = [
+    { icon: TrendingUp, title: "CI/CD", level: 4, description: undefined },
+    { icon: TrendingUp, title: "Observability", level: 3, description: undefined }
+  ];
+
+  const architectureSkills = [
+    { icon: Cpu, title: "DDD", level: 5, description: undefined },
+    { icon: Cpu, title: "Microservices", level: 4, description: undefined },
+    { icon: Cpu, title: "Modular Monolith", level: 4, description: undefined }
+  ];
+
+  const aiSkills = [
+    { icon: Brain, title: "GenAI Application", level: 3, description: undefined }
+  ];
+
   return (
     <>
       <div className='flex flex-1 flex-col gap-6 p-6'>
@@ -121,9 +155,15 @@ export default function SkillsPage() {
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('frontend')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <SkillCard icon={Code} title="HTML, CSS, TypeScript" level={3} />
-                <SkillCard icon={Code} title="React, Next.js" level={3} />
-                <SkillCard icon={Code} title="Vue, Nuxt" level={3} />
+                {frontendSkills.map((skill, index) => (
+                  <SkillCard
+                    key={index}
+                    icon={skill.icon}
+                    title={skill.title}
+                    level={skill.level}
+                    description={skill.description}
+                  />
+                ))}
               </div>
             </div>
 
@@ -131,14 +171,15 @@ export default function SkillsPage() {
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('backend')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <SkillCard icon={Code} title="Golang" level={5} />
-                <SkillCard icon={Code} title="Node.js, NestJS" level={3} />
-                <SkillCard
-                  icon={Code}
-                  title="Python"
-                  level={3}
-                  description="Haven't used for 2 years, need to relearn"
-                />
+                {backendSkills.map((skill, index) => (
+                  <SkillCard
+                    key={index}
+                    icon={skill.icon}
+                    title={skill.title}
+                    level={skill.level}
+                    description={skill.description}
+                  />
+                ))}
               </div>
             </div>
 
@@ -146,9 +187,15 @@ export default function SkillsPage() {
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('infrastructure')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <SkillCard icon={Cloud} title="Google Cloud" level={4} />
-                <SkillCard icon={Database} title="MySQL, PostgreSQL" level={3} />
-                <SkillCard icon={Database} title="NoSQL" level={3} />
+                {infrastructureSkills.map((skill, index) => (
+                  <SkillCard
+                    key={index}
+                    icon={skill.icon}
+                    title={skill.title}
+                    level={skill.level}
+                    description={skill.description}
+                  />
+                ))}
               </div>
             </div>
 
@@ -156,8 +203,15 @@ export default function SkillsPage() {
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('devops')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <SkillCard icon={TrendingUp} title="CI/CD" level={4} />
-                <SkillCard icon={TrendingUp} title="Observability" level={3} />
+                {devopsSkills.map((skill, index) => (
+                  <SkillCard
+                    key={index}
+                    icon={skill.icon}
+                    title={skill.title}
+                    level={skill.level}
+                    description={skill.description}
+                  />
+                ))}
               </div>
             </div>
 
@@ -165,9 +219,15 @@ export default function SkillsPage() {
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('architecture')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <SkillCard icon={Cpu} title="DDD" level={5} />
-                <SkillCard icon={Cpu} title="Microservices" level={4} />
-                <SkillCard icon={Cpu} title="Modular Monolith" level={4} />
+                {architectureSkills.map((skill, index) => (
+                  <SkillCard
+                    key={index}
+                    icon={skill.icon}
+                    title={skill.title}
+                    level={skill.level}
+                    description={skill.description}
+                  />
+                ))}
               </div>
             </div>
 
@@ -175,7 +235,15 @@ export default function SkillsPage() {
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('ai')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <SkillCard icon={Brain} title="GenAI Application" level={3} />
+                {aiSkills.map((skill, index) => (
+                  <SkillCard
+                    key={index}
+                    icon={skill.icon}
+                    title={skill.title}
+                    level={skill.level}
+                    description={skill.description}
+                  />
+                ))}
               </div>
             </div>
           </section>

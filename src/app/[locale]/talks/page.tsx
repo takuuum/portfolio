@@ -76,6 +76,56 @@ const TalkCard = ({
 
 export default function TalksPage() {
   const t = useTranslations('Talks');
+
+  const talks = [
+    {
+      title: "今すぐできる！ DORA metrics でカジュアルに始める CI/CD",
+      event: "DevOpsDays Tokyo 2024",
+      year: "2024",
+      month: "April",
+      description: "DORA metricsを基盤としたCI/CD実装の実践ガイド。この発表では、4つの主要なDORAメトリクス（デプロイ頻度、リードタイム、変更失敗率、復旧時間）を使用して、チームが測定可能な成果でDevOpsの旅を始める方法を実演。即座に実装できるハンズオンの例とツールの推奨事項を含む。",
+      link: "https://confengine.com/conferences/devopsdays-tokyo-2024/proposal/19720/dora-metrics-cicd",
+      attendees: 500,
+      venue: "Tokyo"
+    },
+    {
+      title: "クラウドネイティブ化は本当に必要なのか？ 移行パターンと成功のポイント",
+      event: "CloudNative Days Summer 2024",
+      year: "2024",
+      month: "June",
+      description: "クラウドネイティブ変革イニシアティブの批判的検討で、組織がクラウドネイティブアーキテクチャを追求すべきタイミングと理由を問い直す。様々なマイグレーションパターン、成功要因、よくある落とし穴を紹介。実際の変革プロジェクトからの洞察を共有し、クラウドネイティブ採用に関する意思決定のフレームワークを提供。",
+      link: "https://event.cloudnativedays.jp/cnds2024/talks/2261",
+      attendees: 800,
+      venue: "Hokkaido"
+    },
+    {
+      title: "なぜドメイン駆動設計（DDD）なのか？ - モダンソフトウェア開発における必要性と適用性",
+      event: "Developers Summit 2023 Summer",
+      year: "2023",
+      month: "July",
+      description: "ドメイン駆動設計（DDD）とモダンソフトウェア開発におけるその重要性の詳細な探求。この講演では、DDD原則の必要性と適用性について取り上げ、複雑なビジネス要件にどのように対処し、ソフトウェアの保守性を向上させるかを議論。DDDの採用を検討するチームに向けて、実世界の例と実践的な実装戦略を紹介。",
+      link: "https://codezine.jp/devonline/archive/session/157",
+      attendees: 2000,
+      venue: "Tokyo"
+    },
+    {
+      title: "OpenTelemetry for Go 計装大全 〜息をするようにトレース計装できていますか？〜",
+      event: "Cloud Operator Days Tokyo 2024",
+      year: "2024",
+      month: "July",
+      description: "GoアプリケーションにOpenTelemetry計装を実装するための包括的ガイド。この技術的深掘りでは、OpenTelemetryを使用した分散トレーシング、メトリクス、ログの実装に関するベストプラクティスをカバー。Go開発者が呼吸するように自然に可観測性計装を行えるようにする方法を、実践的なコード例とパフォーマンスの考慮事項とともに実演。",
+      link: "https://event2024.cloudopsdays.com/2024/07/06/12/",
+      attendees: 42,
+      venue: "Tokyo"
+    }
+  ];
+
+  const speakingStats = [
+    { value: "12", color: "text-blue-600 dark:text-blue-400", label: t('totalTalks') },
+    { value: "3,342", color: "text-green-600 dark:text-green-400", label: t('totalAttendees') },
+    { value: "4+", color: "text-purple-600 dark:text-purple-400", label: t('majorConferences') }
+  ];
+
   return (
     <>
       <div className='flex flex-1 flex-col gap-6 p-6'>
@@ -107,50 +157,19 @@ export default function TalksPage() {
               {t('featuredTalks')}
             </h3>
             <div className='space-y-6'>
-
-              <TalkCard
-                title="今すぐできる！ DORA metrics でカジュアルに始める CI/CD"
-                event="DevOpsDays Tokyo 2024"
-                year="2024"
-                month="April"
-                description="DORA metricsを基盤としたCI/CD実装の実践ガイド。この発表では、4つの主要なDORAメトリクス（デプロイ頻度、リードタイム、変更失敗率、復旧時間）を使用して、チームが測定可能な成果でDevOpsの旅を始める方法を実演。即座に実装できるハンズオンの例とツールの推奨事項を含む。"
-                link="https://confengine.com/conferences/devopsdays-tokyo-2024/proposal/19720/dora-metrics-cicd"
-                attendees={500}
-                venue="Tokyo"
-              />
-
-              <TalkCard
-                title="クラウドネイティブ化は本当に必要なのか？ 移行パターンと成功のポイント"
-                event="CloudNative Days Summer 2024"
-                year="2024"
-                month="June"
-                description="クラウドネイティブ変革イニシアティブの批判的検討で、組織がクラウドネイティブアーキテクチャを追求すべきタイミングと理由を問い直す。様々なマイグレーションパターン、成功要因、よくある落とし穴を紹介。実際の変革プロジェクトからの洞察を共有し、クラウドネイティブ採用に関する意思決定のフレームワークを提供。"
-                link="https://event.cloudnativedays.jp/cnds2024/talks/2261"
-                attendees={800}
-                venue="Hokkaido"
-              />
-
-              <TalkCard
-                title="なぜドメイン駆動設計（DDD）なのか？ - モダンソフトウェア開発における必要性と適用性"
-                event="Developers Summit 2023 Summer"
-                year="2023"
-                month="July"
-                description="ドメイン駆動設計（DDD）とモダンソフトウェア開発におけるその重要性の詳細な探求。この講演では、DDD原則の必要性と適用性について取り上げ、複雑なビジネス要件にどのように対処し、ソフトウェアの保守性を向上させるかを議論。DDDの採用を検討するチームに向けて、実世界の例と実践的な実装戦略を紹介。"
-                link="https://codezine.jp/devonline/archive/session/157"
-                attendees={2000}
-                venue="Tokyo"
-              />
-
-              <TalkCard
-                title="OpenTelemetry for Go 計装大全 〜息をするようにトレース計装できていますか？〜"
-                event="Cloud Operator Days Tokyo 2024"
-                year="2024"
-                month="July"
-                description="GoアプリケーションにOpenTelemetry計装を実装するための包括的ガイド。この技術的深掘りでは、OpenTelemetryを使用した分散トレーシング、メトリクス、ログの実装に関するベストプラクティスをカバー。Go開発者が呼吸するように自然に可観測性計装を行えるようにする方法を、実践的なコード例とパフォーマンスの考慮事項とともに実演。"
-                link="https://event2024.cloudopsdays.com/2024/07/06/12/"
-                attendees={42}
-                venue="Tokyo"
-              />
+              {talks.map((talk, index) => (
+                <TalkCard
+                  key={index}
+                  title={talk.title}
+                  event={talk.event}
+                  year={talk.year}
+                  month={talk.month}
+                  description={talk.description}
+                  link={talk.link}
+                  attendees={talk.attendees}
+                  venue={talk.venue}
+                />
+              ))}
             </div>
           </section>
 
@@ -161,18 +180,12 @@ export default function TalksPage() {
               {t('speakingExperience')}
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>12</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('totalTalks')}</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-green-600 dark:text-green-400 mb-2'>3,342</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('totalAttendees')}</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>4+</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>{t('majorConferences')}</div>
-              </div>
+              {speakingStats.map((stat, index) => (
+                <div key={index} className='text-center'>
+                  <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
+                  <div className='text-sm text-gray-600 dark:text-gray-400'>{stat.label}</div>
+                </div>
+              ))}
             </div>
 
             <div className='mt-6 space-y-4'>
