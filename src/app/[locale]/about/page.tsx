@@ -43,7 +43,9 @@ export default function AboutPage() {
               <Building2 className='h-5 w-5' />
               {t('jobSummary')}
             </h3>
-            <div className='overflow-x-auto'>
+
+            {/* Desktop Table */}
+            <div className='hidden md:block overflow-x-auto'>
               <table className='w-full border-collapse'>
                 <thead>
                   <tr className='border-b border-gray-200 dark:border-gray-700'>
@@ -109,6 +111,99 @@ export default function AboutPage() {
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            {/* Mobile Cards */}
+            <div className='md:hidden space-y-4'>
+              <div className='border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors'>
+                <div className='space-y-3'>
+                  <div>
+                    <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Application Architect / Developer</h4>
+                    <p className='text-sm text-gray-600 dark:text-gray-400'>Product Manager</p>
+                  </div>
+                  <div>
+                    <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('company')}</p>
+                    <Link prefetch={true}
+                      href='https://studioeurygraph.com'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-blue-600 dark:text-blue-400 hover:underline'
+                    >
+                      STUDIO EURYGRAPH
+                    </Link>
+                  </div>
+                  <div className='flex justify-between items-start gap-4'>
+                    <div>
+                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('duration')}</p>
+                      <p className='text-sm text-gray-600 dark:text-gray-400'>2022/3 - Present</p>
+                    </div>
+                    <div>
+                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('employmentType')}</p>
+                      <p className='text-sm text-gray-600 dark:text-gray-400'>Outsourcing (full-time from 2025/4)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors'>
+                <div className='space-y-3'>
+                  <div>
+                    <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Application Architect / Developer</h4>
+                    <p className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer</p>
+                  </div>
+                  <div>
+                    <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('company')}</p>
+                    <Link prefetch={true}
+                      href='https://global.toyota'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-blue-600 dark:text-blue-400 hover:underline'
+                    >
+                      Toyota Motor Corporation
+                    </Link>
+                  </div>
+                  <div className='flex justify-between items-start gap-4'>
+                    <div>
+                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('duration')}</p>
+                      <p className='text-sm text-gray-600 dark:text-gray-400'>2022/9 - 2023/2</p>
+                    </div>
+                    <div>
+                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('employmentType')}</p>
+                      <p className='text-sm text-gray-600 dark:text-gray-400'>Permanent (full-time, 在籍出向)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors'>
+                <div className='space-y-3'>
+                  <div>
+                    <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Application Architect / Developer</h4>
+                    <p className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer<br />Tech Lead / Project Leader</p>
+                  </div>
+                  <div>
+                    <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('company')}</p>
+                    <Link prefetch={true}
+                      href='https://cloud-ace.jp'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-blue-600 dark:text-blue-400 hover:underline'
+                    >
+                      Cloud Ace
+                    </Link>
+                  </div>
+                  <div className='flex justify-between items-start gap-4'>
+                    <div>
+                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('duration')}</p>
+                      <p className='text-sm text-gray-600 dark:text-gray-400'>2021/4 - 2025/3</p>
+                    </div>
+                    <div>
+                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('employmentType')}</p>
+                      <p className='text-sm text-gray-600 dark:text-gray-400'>Permanent (full-time)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
