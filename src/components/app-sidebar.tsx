@@ -72,8 +72,8 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <div className='flex items-center justify-end'>
+      <SidebarFooter className='block'>
+        <div className='flex items-center justify-end gap-1 px-2'>
           <LocaleSwitcher />
           <ThemeToggle />
           <Button variant='ghost' size='icon' asChild>
