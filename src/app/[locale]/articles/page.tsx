@@ -38,7 +38,7 @@ const ArticleCard = ({
         <div className='flex-1'>
           <div className='flex items-start justify-between mb-3'>
             <div className='flex-1'>
-              <h3 className='text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 leading-tight'>
+              <h3 className='text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 mr-8 leading-tight'>
                 {title}
               </h3>
               <div className='flex items-center gap-2 mb-2'>
@@ -112,43 +112,51 @@ export default function ArticlesPage() {
             <TabsContent value="technical" className="mt-6">
               <div className='space-y-6'>
                 <ArticleCard
-                  title="Which Layer Should Implement Transactions?"
+                  title="どのレイヤー（層）でトランザクションを実装すべきか"
                   platform="Zenn"
                   url="https://zenn.dev/cloud_ace/articles/transaction-architecture"
-                  description="An architectural deep-dive into transaction implementation patterns across different layers of application architecture. Explores the trade-offs between implementing transactions at the service layer, repository layer, or use case layer, with practical examples and best practices for maintaining data consistency in complex applications."
+                  description="アプリケーションアーキテクチャの異なる層におけるトランザクション実装パターンの建築的な深掘り。サービス層、リポジトリ層、ユースケース層でのトランザクション実装のトレードオフを、実践的な例と複雑なアプリケーションでのデータ一貫性を維持するベストプラクティスとともに探求。"
                   type="tech"
                 />
 
                 <ArticleCard
-                  title="OpenTelemetry+Go Instrumentation Sample Collection with Cloud Trace"
+                  title="OpenTelemetry+Go 計装サンプル大全 with Cloud Trace ~意外なつまづきポイントを添えて~"
                   platform="Zenn"
                   url="https://zenn.dev/cloud_ace/articles/opentelemetry-go"
-                  description="A comprehensive guide to OpenTelemetry instrumentation in Go applications with Google Cloud Trace integration. Covers common pitfalls, best practices, and practical implementation patterns. Includes real-world examples and troubleshooting tips for distributed tracing in production environments."
+                  description="Google Cloud Trace統合を使ったGoアプリケーションにおけるOpenTelemetry計装の包括的なガイド。よくある落とし穴、ベストプラクティス、実践的な実装パターンをカバー。本番環境での分散トレーシングの実例とトラブルシューティングのヒントを含む。"
                   award="Zenn Special Award"
                   type="tech"
                 />
 
                 <ArticleCard
-                  title="Zero Running Cost Web Application Technical Architecture"
+                  title="「ランニングコストゼロ」で稼働する Web アプリケーションの技術構成"
                   platform="Zenn"
                   url="https://zenn.dev/cloud_ace/articles/free-web-architecture"
-                  description="Detailed technical architecture for building and deploying web applications with zero ongoing operational costs. Explores leveraging free tiers of cloud services, serverless architectures, and static site generation to minimize infrastructure expenses while maintaining performance and scalability."
+                  description="継続的な運用コストをゼロにしたWebアプリケーションの構築とデプロイのための詳細な技術アーキテクチャ。クラウドサービスの無料枠、サーバーレスアーキテクチャ、静的サイト生成を活用して、パフォーマンスとスケーラビリティを維持しながらインフラ費用を最小化する方法を探求。"
                   type="tech"
                 />
 
                 <ArticleCard
-                  title="Easy CI/CD Improvement: DORA Metrics × Cloud Deploy Practical Example"
+                  title="Firebase Auth で作る認証アーキテクチャパターン"
+                  platform="Zenn"
+                  url="https://zenn.dev/cloud_ace/articles/firebase-auth-guide"
+                  description="Firebase AuthenticationのClient SDKとAdmin SDKを適切に使い分けた認証システムの実装パターンを詳細に解説。ログイン、ログアウト、トークン検証、ユーザー管理など、実際のユースケースごとの実装方法とセキュリティ考慮事項を実践的なサンプルコードとともに紹介。"
+                  type="tech"
+                />
+
+                <ArticleCard
+                  title="CI/CD 手軽改善！DORA metrics × Cloud Deploy 実践例"
                   platform="Zenn"
                   url="https://zenn.dev/cloud_ace/articles/cicd-clouddeploy"
-                  description="Practical implementation guide for improving CI/CD pipelines using DORA metrics and Google Cloud Deploy. Demonstrates how to measure and optimize deployment frequency, lead time, change failure rate, and recovery time with real-world examples and actionable strategies."
+                  description="DORA metricsとGoogle Cloud Deployを使用してCI/CDパイプラインを改善する実践的な実装ガイド。デプロイ頻度、リードタイム、変更失敗率、復旧時間を実際の例と実行可能な戦略で測定・最適化する方法を実演。"
                   type="tech"
                 />
 
                 <ArticleCard
-                  title="How to Permanently Store Cookies That Cannot Be Held for Even 1 Second (ITP2.3 Compatible)"
+                  title="1秒も保持できないCookieを永久的に保持する方法（ITP2.3対応）"
                   platform="Qiita"
                   url="https://qiita.com/takuuuum/items/ad445844eb131d5e59cb"
-                  description="Technical solution for cookie persistence challenges introduced by Safari's Intelligent Tracking Prevention (ITP) 2.3. Provides workarounds and alternative approaches for maintaining user session data in privacy-focused browsing environments."
+                  description="SafariのIntelligent Tracking Prevention（ITP）2.3によって導入されたCookie永続化の課題に対する技術的解決策。プライバシー重視のブラウジング環境でユーザーセッションデータを維持するための回避策と代替アプローチを提供。"
                   type="tech"
                 />
               </div>
@@ -157,26 +165,34 @@ export default function ArticlesPage() {
             <TabsContent value="personal" className="mt-6">
               <div className='space-y-6'>
                 <ArticleCard
-                  title="Looking Back on My 2024 Engineering Activities"
+                  title="2024年の「エンジニア活動」を振り返る"
                   platform="note"
                   url="https://note.com/mizutaku0705/n/naa875063e177"
-                  description="A comprehensive retrospective of professional growth, technical achievements, and learning experiences throughout 2024. Reflects on challenges overcome, skills developed, and lessons learned in the rapidly evolving field of software engineering."
+                  description="2024年を通じての専門的成長、技術的成果、学習体験の包括的な振り返り。急速に進歩するソフトウェアエンジニアリング分野で克服した課題、身につけたスキル、学んだ教訓について反省。"
                   type="other"
                 />
 
                 <ArticleCard
-                  title="Not 'Making Your Passion Your Job' but 'Not Making What You Hate Your Job'"
+                  title="ジャッジしない、カテゴライズしない"
+                  platform="note"
+                  url="https://note.com/mizutaku0705/n/ne9663e965121"
+                  description="性別、ジェンダー、情報のカテゴライズについての深い思索。シンプル化された情報やカテゴライズによって削ぎ落とされるもの、無かったことにされるマイノリティの存在について考察。多角的な情報収集と判断の重要性を探求。"
+                  type="other"
+                />
+
+                <ArticleCard
+                  title="「好きなことを仕事にする」ではなく「嫌いなことを仕事にしない」"
                   platform="note"
                   url="https://note.com/mizutaku0705/n/nb61178496061"
-                  description="A thoughtful perspective on career satisfaction and professional fulfillment. Explores the difference between pursuing passion and avoiding dissatisfaction in career choices, with practical insights on building a sustainable and enjoyable professional path."
+                  description="キャリア選択における新しい視点の提案。「好きなことを仕事に」という一般的なアドバイスに対し、「嫌いなことを避ける」というアプローチの方が現実的で持続可能である理由を考察。仕事への満足度を高めるための実践的な思考法について。"
                   type="other"
                 />
 
                 <ArticleCard
-                  title="The Courage to Say You Cannot Do What You Cannot Do"
+                  title="できないことを「できない」と言う勇気"
                   platform="note"
                   url="https://note.com/mizutaku0705/n/nafbca7b3635f"
-                  description="An honest reflection on the importance of acknowledging limitations and setting healthy boundaries in professional environments. Discusses the value of transparency, the courage to admit when something is beyond your current capabilities, and how this honesty can lead to better outcomes for both individuals and teams."
+                  description="仕事で自分の限界を正直に伝えることの大切さについて。無理をして引き受けるよりも、できないことは「できない」と素直に言う方が、結果的にチーム全体にとってプラスになる理由を実体験を交えて考察。健全な職場環境を作るためのコミュニケーションについて。"
                   type="other"
                 />
               </div>
@@ -191,11 +207,11 @@ export default function ArticlesPage() {
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
               <div className='text-center'>
-                <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>5</div>
+                <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>8</div>
                 <div className='text-sm text-gray-600 dark:text-gray-400'>{t('technicalArticlesCount')}</div>
               </div>
               <div className='text-center'>
-                <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>3</div>
+                <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>6</div>
                 <div className='text-sm text-gray-600 dark:text-gray-400'>{t('notTechnicalArticlesCount')}</div>
               </div>
               <div className='text-center'>

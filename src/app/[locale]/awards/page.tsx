@@ -141,16 +141,16 @@ export default function AwardsPage() {
                 title="Google Cloud Partner Top Engineer 2025"
                 year="2025"
                 organization="Google Cloud"
-                description="Individual recognition as one of the top engineers among Google Cloud partners. This award recognizes exceptional technical expertise, innovation, and contribution to the Google Cloud ecosystem. Selected based on technical skills, customer impact, and community involvement."
+                description="Google Cloud パートナー企業の中で選出されるトップエンジニアとしての個人表彰。この賞は、卓越した技術的専門知識、革新性、Google Cloud エコシステムへの貢献を認定するものであり、技術スキル、顧客への影響、コミュニティへの参加に基づいて選出される。"
                 link="https://cloud.google.com/blog/ja/topics/partners/2025-google-cloud-partner-top-engineer-award-program"
                 color="blue"
               />
 
               <AwardCard
-                title="Good Design Award 2024"
+                title="2024年度グッドデザイン賞"
                 year="2024"
-                organization="Japan Institute of Design Promotion"
-                description="Awarded for a service where I served as both Product Manager and Engineer. The Good Design Award recognizes outstanding design that contributes to the betterment of society through design excellence, innovation, and user experience. This award acknowledges the comprehensive approach to product development from both technical and management perspectives."
+                organization="公益財団法人日本デザイン振興会"
+                description="プロダクトマネージャーとエンジニア両方の役割を担当したサービスでの受賞。グッドデザイン賞は、デザインの優秀性、革新性、ユーザーエクスペリエンスを通じて社会の向上に貢献する優れたデザインを表彰する。サービスのデザイン性と社会性が評価され受賞に至った。"
                 link="https://www.g-mark.org/gallery/winners/21878"
                 color="orange"
               />
@@ -159,7 +159,7 @@ export default function AwardsPage() {
                 title="Zenn記事投稿キャンペーン「Google Cloud」特別賞"
                 year="2024"
                 organization="Zenn（クラスメソッド株式会社）"
-                description="Zenn初の記事投稿キャンペーン「Google Cloud」にて特別賞（ユニークな取り組みの記事）を受賞。OpenTelemetry+Go 計装サンプル大全 with Cloud Trace ~意外なつまづきポイントを添えて~ で、オライリーの書籍「オブザーバビリティ・エンジニアリング」でも紹介されているOpenTelemetryを、Go言語とGoogle Cloudを例に実践的に導入する記事として評価されました。読者がOpenTelemetryを取り入れるきっかけとなる記事として特別賞に選出されました。"
+                description="Zenn初の記事投稿キャンペーン「Google Cloud」にて特別賞（ユニークな取り組みの記事）を受賞。オライリーの書籍「オブザーバビリティ・エンジニアリング」でも紹介されているOpenTelemetryを、Go言語とGoogle Cloudを例に実践的に導入する記事として評価された。"
                 link="https://zenn.dev/contests/gc24?tab=overview"
                 color="blue"
               />
@@ -178,15 +178,15 @@ export default function AwardsPage() {
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('technicalCertifications')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <CertificationCard
-                  title="Google Certified Professional Cloud Architect"
-                  issuer="Google Cloud"
-                  icon={Cloud}
-                  color="blue"
-                />
-                <CertificationCard
                   title="Google Certified Professional Cloud Developer"
                   issuer="Google Cloud"
                   icon={Code}
+                  color="blue"
+                />
+                <CertificationCard
+                  title="Google Certified Professional Cloud Architect"
+                  issuer="Google Cloud"
+                  icon={Cloud}
                   color="blue"
                 />
                 <CertificationCard
@@ -232,43 +232,6 @@ export default function AwardsPage() {
                   icon={GraduationCap}
                   color="red"
                 />
-              </div>
-            </div>
-          </section>
-
-          {/* Additional Info */}
-          <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2'>
-              <Trophy className='h-5 w-5 text-yellow-600' />
-              {t('awardSignificance')}
-            </h3>
-            <div className='space-y-4'>
-              <div>
-                <h4 className='font-semibold text-gray-900 dark:text-gray-100 mb-2'>Google Cloud Partner Top Engineer 2025</h4>
-                <p className='text-gray-700 dark:text-gray-300 text-sm'>
-                  This prestigious recognition highlights technical leadership in the Google Cloud ecosystem,
-                  demonstrating expertise in cloud architecture, implementation, and customer success.
-                  The award emphasizes not only technical skills but also the ability to drive innovation
-                  and deliver value to clients through Google Cloud technologies.
-                </p>
-              </div>
-              <div>
-                <h4 className='font-semibold text-gray-900 dark:text-gray-100 mb-2'>Good Design Award 2024</h4>
-                <p className='text-gray-700 dark:text-gray-300 text-sm'>
-                  The Good Design Award is one of Japan's most prestigious design awards,
-                  recognizing products and services that contribute to society through excellent design.
-                  This award acknowledges the holistic approach to product development,
-                  combining technical engineering excellence with product management vision.
-                </p>
-              </div>
-              <div>
-                <h4 className='font-semibold text-gray-900 dark:text-gray-100 mb-2'>Zenn記事投稿キャンペーン「Google Cloud」特別賞</h4>
-                <p className='text-gray-700 dark:text-gray-300 text-sm'>
-                  Zenn初の記事投稿キャンペーンにおいて設けられた3つの賞のうちの1つ。
-                  Google Cloudをテーマとした記事投稿キャンペーンで、投稿記事58本の中から
-                  厳正な審査により選出される希少性の高い賞です。
-                  技術記事を通じたエンジニアコミュニティへの貢献が評価されました。
-                </p>
               </div>
             </div>
           </section>

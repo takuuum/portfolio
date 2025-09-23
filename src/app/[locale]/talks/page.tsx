@@ -112,45 +112,46 @@ export default function TalksPage() {
               {t('featuredTalks')}
             </h3>
             <div className='space-y-6'>
-              <TalkCard
-                title="Why Domain-Driven Design (DDD)? - Necessity and Applicability in Modern Software Development"
-                event="Developers Summit 2023 Summer"
-                year="2023"
-                month="July"
-                description="An in-depth exploration of Domain-Driven Design (DDD) and its critical importance in modern software development. This talk covered the necessity and applicability of DDD principles, discussing how they address complex business requirements and improve software maintainability. Presented real-world examples and practical implementation strategies for teams looking to adopt DDD."
-                link="https://codezine.jp/devonline/archive/session/157"
-                attendees={2000}
-                venue="Tokyo"
-              />
 
               <TalkCard
-                title="Start CI/CD Casually with DORA Metrics - What You Can Do Right Now!"
+                title="今すぐできる！ DORA metrics でカジュアルに始める CI/CD"
                 event="DevOpsDays Tokyo 2024"
                 year="2024"
                 month="April"
-                description="A practical guide to implementing CI/CD using DORA metrics as a foundation. This presentation demonstrated how teams can start their DevOps journey with measurable outcomes using the four key DORA metrics: deployment frequency, lead time, change failure rate, and recovery time. Included hands-on examples and tooling recommendations for immediate implementation."
+                description="DORA metricsを基盤としたCI/CD実装の実践ガイド。この発表では、4つの主要なDORAメトリクス（デプロイ頻度、リードタイム、変更失敗率、復旧時間）を使用して、チームが測定可能な成果でDevOpsの旅を始める方法を実演。即座に実装できるハンズオンの例とツールの推奨事項を含む。"
                 link="https://confengine.com/conferences/devopsdays-tokyo-2024/proposal/19720/dora-metrics-cicd"
                 attendees={500}
                 venue="Tokyo"
               />
 
               <TalkCard
-                title="Is Cloud Native Really Necessary? Migration Patterns and Success Points"
+                title="クラウドネイティブ化は本当に必要なのか？ 移行パターンと成功のポイント"
                 event="CloudNative Days Summer 2024"
                 year="2024"
-                month="July"
-                description="A critical examination of cloud-native transformation initiatives, questioning when and why organizations should pursue cloud-native architectures. Presented various migration patterns, success factors, and common pitfalls. Shared insights from real transformation projects and provided a framework for decision-making around cloud-native adoption."
+                month="June"
+                description="クラウドネイティブ変革イニシアティブの批判的検討で、組織がクラウドネイティブアーキテクチャを追求すべきタイミングと理由を問い直す。様々なマイグレーションパターン、成功要因、よくある落とし穴を紹介。実際の変革プロジェクトからの洞察を共有し、クラウドネイティブ採用に関する意思決定のフレームワークを提供。"
                 link="https://event.cloudnativedays.jp/cnds2024/talks/2261"
                 attendees={800}
+                venue="Hokkaido"
+              />
+
+              <TalkCard
+                title="なぜドメイン駆動設計（DDD）なのか？ - モダンソフトウェア開発における必要性と適用性"
+                event="Developers Summit 2023 Summer"
+                year="2023"
+                month="July"
+                description="ドメイン駆動設計（DDD）とモダンソフトウェア開発におけるその重要性の詳細な探求。この講演では、DDD原則の必要性と適用性について取り上げ、複雑なビジネス要件にどのように対処し、ソフトウェアの保守性を向上させるかを議論。DDDの採用を検討するチームに向けて、実世界の例と実践的な実装戦略を紹介。"
+                link="https://codezine.jp/devonline/archive/session/157"
+                attendees={2000}
                 venue="Tokyo"
               />
 
               <TalkCard
-                title="OpenTelemetry for Go Complete Guide - Can You Instrument Tracing as Naturally as Breathing?"
+                title="OpenTelemetry for Go 計装大全 〜息をするようにトレース計装できていますか？〜"
                 event="Cloud Operator Days Tokyo 2024"
                 year="2024"
                 month="July"
-                description="A comprehensive guide to OpenTelemetry instrumentation in Go applications. This technical deep-dive covered best practices for implementing distributed tracing, metrics, and logging using OpenTelemetry. Demonstrated how to make observability instrumentation as natural as breathing for Go developers, with practical code examples and performance considerations."
+                description="GoアプリケーションにOpenTelemetry計装を実装するための包括的ガイド。この技術的深掘りでは、OpenTelemetryを使用した分散トレーシング、メトリクス、ログの実装に関するベストプラクティスをカバー。Go開発者が呼吸するように自然に可観測性計装を行えるようにする方法を、実践的なコード例とパフォーマンスの考慮事項とともに実演。"
                 link="https://event2024.cloudopsdays.com/2024/07/06/12/"
                 attendees={42}
                 venue="Tokyo"

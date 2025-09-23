@@ -195,36 +195,6 @@ export default function HomePage() {
               />
             </div>
           </section>
-
-          {/* Latest Activities */}
-          <section>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('latestActivities')}</h3>
-            <div className='bg-white dark:bg-gray-800 rounded-lg p-6 border'>
-              <div className='space-y-4'>
-                <div className='flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg'>
-                  <Award className='h-5 w-5 text-blue-600 dark:text-blue-400' />
-                  <div>
-                    <p className='font-medium text-gray-900 dark:text-gray-100'>{t('googleCloudAward')}</p>
-                    <p className='text-sm text-gray-600 dark:text-gray-300'>{t('googleCloudAwardDesc')}</p>
-                  </div>
-                </div>
-                <div className='flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg'>
-                  <FileText className='h-5 w-5 text-green-600 dark:text-green-400' />
-                  <div>
-                    <p className='font-medium text-gray-900 dark:text-gray-100'>{t('publishedArticle')}</p>
-                    <p className='text-sm text-gray-600 dark:text-gray-300'>{t('publishedArticleDesc')}</p>
-                  </div>
-                </div>
-                <div className='flex items-center gap-3 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg'>
-                  <TrendingUp className='h-5 w-5 text-purple-600 dark:text-purple-400' />
-                  <div>
-                    <p className='font-medium text-gray-900 dark:text-gray-100'>{t('careerTransition')}</p>
-                    <p className='text-sm text-gray-600 dark:text-gray-300'>{t('careerTransitionDesc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       </div>
 
