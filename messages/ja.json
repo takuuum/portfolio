@@ -91,7 +91,22 @@
     "level4": "他者のレビューが可能",
     "level3": "独立して実装可能",
     "level2": "独立して実装可能（保守レベル）",
-    "level1": "サポートを受けて実装可能"
+    "level1": "サポートを受けて実装可能",
+    "leadershipItems": {
+      "techLead": "30人プロジェクトのテックリード（ステークホルダー3社）",
+      "projectLeader": "最大8人チームのプロジェクトリーダー（6プロジェクト）",
+      "studySessions": "社内勉強会を48回開催（総参加者434名）",
+      "vicePresident": "200名のNPO組織の学生副代表（大学在学中）"
+    },
+    "communicationItems": {
+      "clientNegotiation": "顧客折衝経験（7プロジェクト）",
+      "preSales": "プリセールス活動（4プロジェクト）",
+      "eventSpeaking": "イベント登壇（12回、総参加者3,342名）"
+    },
+    "learningSpeedItems": {
+      "promotion": "クラウドエース株式会社にて、最年少でシニアスペシャリスト（エンジニア約300名の中で上位25%に相当し、テックリード等の役目を担うグレード）に昇格",
+      "dddMastery": "DDDを2週間でマスターし、お客様への技術支援を実施。2ヶ月後には2,000人以上のイベントで登壇"
+    }
   },
   "Projects": {
     "title": "プロジェクト",
@@ -102,9 +117,10 @@
     "projectOverview": "プロジェクト概要",
     "majorProjects": "主要プロジェクト",
     "technologiesUsed": "使用技術",
-    "companies": "企業",
-    "successRate": "成功率",
-    "technologyCategories": "技術カテゴリ"
+    "plProjects": "PL案件",
+    "technologyCategories": "技術カテゴリ",
+    "additionalProjectsDescription": "こちらに掲載されているプロジェクト以外にも多数の案件に携わっています",
+    "viewAdditionalProjects": "他の案件はこちら"
   },
   "Articles": {
     "title": "記事",

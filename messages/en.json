@@ -91,7 +91,22 @@
     "level4": "Capable of reviewing others",
     "level3": "Capable of implementing independently",
     "level2": "Capable of implementing independently (maintenance level)",
-    "level1": "Capable of implementing with support"
+    "level1": "Capable of implementing with support",
+    "leadershipItems": {
+      "techLead": "Tech Lead for 30-person project (3 stakeholder companies)",
+      "projectLeader": "Project Leader for up to 8-person teams (6 projects)",
+      "studySessions": "Organized 48 internal study sessions (434 total participants)",
+      "vicePresident": "Student Vice President of 200-member NPO organization"
+    },
+    "communicationItems": {
+      "clientNegotiation": "Client negotiation experience (7 projects)",
+      "preSales": "Pre-sales activities (4 projects)",
+      "eventSpeaking": "Event speaking (12 times, 3,342 total attendees)"
+    },
+    "learningSpeedItems": {
+      "promotion": "Promoted to Senior Specialist (top 25% of ~300 engineers) as youngest member",
+      "dddMastery": "Mastered DDD in 2 weeks, spoke at 2,000+ attendee event after 2 months"
+    }
   },
   "Projects": {
     "title": "Projects",
@@ -102,9 +117,10 @@
     "projectOverview": "Project Overview",
     "majorProjects": "Major Projects",
     "technologiesUsed": "Technologies Used",
-    "companies": "Companies",
-    "successRate": "Success Rate",
-    "technologyCategories": "Technology Categories"
+    "plProjects": "PL Projects",
+    "technologyCategories": "Technology Categories",
+    "additionalProjectsDescription": "I have worked on many other projects beyond those listed here",
+    "viewAdditionalProjects": "View Other Projects"
   },
   "Articles": {
     "title": "Articles",

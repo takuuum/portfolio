@@ -52,7 +52,7 @@ export default function SkillsPage() {
       </header>
       <div className='flex flex-1 flex-col gap-6 p-6'>
         <div className='max-w-4xl mx-auto space-y-8'>
-          
+
           {/* Header Section */}
           <section className='text-center space-y-4'>
             <div className='flex justify-center'>
@@ -65,14 +65,14 @@ export default function SkillsPage() {
               </p>
             </div>
           </section>
-          
+
           {/* Soft Skills */}
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2'>
               <Users className='h-5 w-5' />
               {t('coreStrengths')}
             </h3>
-            
+
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
               {/* Leadership */}
               <div className='space-y-4'>
@@ -81,13 +81,13 @@ export default function SkillsPage() {
                   {t('leadership')}
                 </h4>
                 <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-300'>
-                  <li>" Tech Lead for 30-person project (3 stakeholder companies)</li>
-                  <li>" Project Leader for up to 8-person teams (6 projects)</li>
-                  <li>" Organized 48 internal study sessions (434 total participants)</li>
-                  <li>" Student Vice President of 200-member NPO organization</li>
+                  <li>" {t('leadershipItems.techLead')}</li>
+                  <li>" {t('leadershipItems.projectLeader')}</li>
+                  <li>" {t('leadershipItems.studySessions')}</li>
+                  <li>" {t('leadershipItems.vicePresident')}</li>
                 </ul>
               </div>
-              
+
               {/* Communication */}
               <div className='space-y-4'>
                 <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2'>
@@ -95,12 +95,12 @@ export default function SkillsPage() {
                   {t('communication')}
                 </h4>
                 <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-300'>
-                  <li>" Client negotiation experience (7 projects)</li>
-                  <li>" Pre-sales activities (4 projects)</li>
-                  <li>" Event speaking (12 times, 3,342 total attendees)</li>
+                  <li>" {t('communicationItems.clientNegotiation')}</li>
+                  <li>" {t('communicationItems.preSales')}</li>
+                  <li>" {t('communicationItems.eventSpeaking')}</li>
                 </ul>
               </div>
-              
+
               {/* Learning Speed */}
               <div className='space-y-4'>
                 <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2'>
@@ -108,8 +108,8 @@ export default function SkillsPage() {
                   {t('learningSpeed')}
                 </h4>
                 <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-300'>
-                  <li>" Promoted to Senior Specialist (top 25% of ~300 engineers) as youngest member</li>
-                  <li>" Mastered DDD in 2 weeks, spoke at 2,000+ attendee event after 2 months</li>
+                  <li>" {t('learningSpeedItems.promotion')}</li>
+                  <li>" {t('learningSpeedItems.dddMastery')}</li>
                 </ul>
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function SkillsPage() {
               <Code className='h-5 w-5' />
               {t('technicalSkills')}
             </h3>
-            
+
             {/* Frontend */}
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('frontend')}</h4>
@@ -131,22 +131,22 @@ export default function SkillsPage() {
                 <SkillCard icon={Code} title="Vue, Nuxt" level={3} />
               </div>
             </div>
-            
+
             {/* Backend */}
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('backend')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <SkillCard icon={Code} title="Golang" level={5} />
                 <SkillCard icon={Code} title="Node.js, NestJS" level={3} />
-                <SkillCard 
-                  icon={Code} 
-                  title="Python" 
-                  level={3} 
+                <SkillCard
+                  icon={Code}
+                  title="Python"
+                  level={3}
                   description="Haven't used for 2 years, need to relearn"
                 />
               </div>
             </div>
-            
+
             {/* Infrastructure */}
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('infrastructure')}</h4>
@@ -156,7 +156,7 @@ export default function SkillsPage() {
                 <SkillCard icon={Database} title="NoSQL" level={3} />
               </div>
             </div>
-            
+
             {/* DevOps */}
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('devops')}</h4>
@@ -165,7 +165,7 @@ export default function SkillsPage() {
                 <SkillCard icon={TrendingUp} title="Observability" level={3} />
               </div>
             </div>
-            
+
             {/* Architecture */}
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('architecture')}</h4>
@@ -175,7 +175,7 @@ export default function SkillsPage() {
                 <SkillCard icon={Cpu} title="Modular Monolith" level={4} />
               </div>
             </div>
-            
+
             {/* AI */}
             <div className='mb-8'>
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('ai')}</h4>
