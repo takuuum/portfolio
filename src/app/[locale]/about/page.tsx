@@ -2,6 +2,7 @@ import { User, Award, Building2, Users, Trophy, FileText, ExternalLink } from 'l
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { PageNavigation } from '@/components/page-navigation';
 
 export default function AboutPage() {
   const t = useTranslations('About');
@@ -198,6 +199,8 @@ export default function AboutPage() {
           </section>
         </div>
       </div>
+
+      <PageNavigation currentPath="/about" />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { Code, Users, Zap, MessageSquare, Star, TrendingUp, Database, Cloud, Cpu, Brain, BarChart3 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { PageNavigation } from '@/components/page-navigation';
 
 const StarRating = ({ level }: { level: number }) => {
   return (
@@ -279,6 +280,8 @@ export default function SkillsPage() {
           </section>
         </div>
       </div>
+
+      <PageNavigation currentPath="/skills" />
     </>
   );
 }

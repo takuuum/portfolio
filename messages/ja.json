@@ -8,7 +8,9 @@
     "talks": "登壇",
     "awards": "受賞・資格",
     "github": "Github",
-    "note": "note"
+    "note": "note",
+    "previous": "前へ",
+    "next": "次へ"
   },
   "Dashboard": {
     "title": "ホーム",

@@ -1,6 +1,7 @@
 import { Trophy, Award, ExternalLink, Calendar, Building2, FileText, GraduationCap, Cloud, Code } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { PageNavigation } from '@/components/page-navigation';
 
 const AwardCard = ({
   title,
@@ -269,6 +270,8 @@ export default function AwardsPage() {
           </section>
         </div>
       </div>
+
+      <PageNavigation currentPath="/awards" />
     </>
   );
 }

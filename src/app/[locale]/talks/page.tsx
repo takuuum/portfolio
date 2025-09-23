@@ -1,6 +1,7 @@
 import { MicVocal, Calendar, Users, ExternalLink, MapPin, Clock } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { PageNavigation } from '@/components/page-navigation';
 
 const TalkCard = ({
   title,
@@ -214,6 +215,8 @@ export default function TalksPage() {
           </section>
         </div>
       </div>
+
+      <PageNavigation currentPath="/talks" />
     </>
   );
 }

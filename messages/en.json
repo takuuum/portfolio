@@ -8,7 +8,9 @@
     "talks": "Event Talks",
     "awards": "Awards & Certifications",
     "github": "Github",
-    "note": "note"
+    "note": "note",
+    "previous": "Previous",
+    "next": "Next"
   },
   "Dashboard": {
     "title": "Home",

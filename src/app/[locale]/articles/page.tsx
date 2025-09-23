@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FileText, ExternalLink, Award, Calendar, Code, Heart } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { PageNavigation } from '@/components/page-navigation';
 
 const ArticleCard = ({
   title,
@@ -242,6 +243,8 @@ export default function ArticlesPage() {
           </section>
         </div>
       </div>
+
+      <PageNavigation currentPath="/articles" />
     </>
   );
 }

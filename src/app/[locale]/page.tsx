@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { User, Code, FileText, Award, MicVocal, Trophy, Calendar, TrendingUp, Cpu, ExternalLink } from 'lucide-react';
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
+import { PageNavigation } from '@/components/page-navigation';
 
 const DashboardCard = ({
   title,
@@ -239,6 +240,8 @@ export default function HomePage() {
 
       {/* AI Chat Bot */}
       {/* <ChatBot /> */}
+
+      <PageNavigation currentPath="/" />
     </>
   );
 }

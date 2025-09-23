@@ -1,6 +1,7 @@
 import { Code, ExternalLink, User, Layers, Tag } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { PageNavigation } from '@/components/page-navigation';
 
 const ProjectCard = ({
   title,
@@ -248,6 +249,8 @@ export default function ProjectsPage() {
           </section>
         </div>
       </div>
+
+      <PageNavigation currentPath="/projects" />
     </>
   );
 }
