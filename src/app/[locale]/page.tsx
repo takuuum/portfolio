@@ -97,7 +97,7 @@ export default function HomePage() {
     },
     {
       title: t('projects'),
-      value: "10+",
+      value: "20+",
       icon: Code,
       description: t('projectsDesc'),
       href: "/projects",
