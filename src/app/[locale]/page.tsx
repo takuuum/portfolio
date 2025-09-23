@@ -85,6 +85,85 @@ const QuickActionCard = ({
 
 export default function HomePage() {
   const t = useTranslations('Dashboard');
+
+  const keyMetrics = [
+    {
+      title: t('experience'),
+      value: "4+",
+      icon: Calendar,
+      description: t('experienceDesc'),
+      href: "/skills",
+      color: "blue" as const
+    },
+    {
+      title: t('projects'),
+      value: "10+",
+      icon: Code,
+      description: t('projectsDesc'),
+      href: "/projects",
+      color: "green" as const
+    },
+    {
+      title: t('articles'),
+      value: "8",
+      icon: FileText,
+      description: t('articlesDesc'),
+      href: "/articles",
+      color: "purple" as const
+    },
+    {
+      title: t('talks'),
+      value: "12",
+      icon: MicVocal,
+      description: t('talksDesc'),
+      href: "/talks",
+      color: "orange" as const
+    }
+  ];
+
+  const achievements = [
+    {
+      title: t('2025'),
+      value: t('googleCloudPartner'),
+      icon: Trophy,
+      description: t('individualAward'),
+      href: "/awards",
+      color: "yellow" as const
+    },
+    {
+      title: t('2024'),
+      value: t('goodDesignAward'),
+      icon: Award,
+      description: t('productDesign'),
+      href: "/awards",
+      color: "red" as const
+    }
+  ];
+
+  const quickActions = [
+    {
+      title: t('aboutMe'),
+      description: t('aboutMeDesc'),
+      href: "/about",
+      icon: User,
+      external: false
+    },
+    {
+      title: t('technicalSkills'),
+      description: t('technicalSkillsDesc'),
+      href: "/skills",
+      icon: Cpu,
+      external: false
+    },
+    {
+      title: t('viewResume'),
+      description: t('viewResumeDesc'),
+      href: "https://storage.googleapis.com/takumi-mizuno/resume.pdf",
+      icon: FileText,
+      external: true
+    }
+  ];
+
   return (
     <>
       <div className='flex flex-1 flex-col gap-6 p-6'>
@@ -107,38 +186,17 @@ export default function HomePage() {
           <section>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('keyMetrics')}</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
-              <DashboardCard
-                title={t('experience')}
-                value="4+"
-                icon={Calendar}
-                description={t('experienceDesc')}
-                href="/skills"
-                color="blue"
-              />
-              <DashboardCard
-                title={t('projects')}
-                value="10+"
-                icon={Code}
-                description={t('projectsDesc')}
-                href="/projects"
-                color="green"
-              />
-              <DashboardCard
-                title={t('articles')}
-                value="8"
-                icon={FileText}
-                description={t('articlesDesc')}
-                href="/articles"
-                color="purple"
-              />
-              <DashboardCard
-                title={t('talks')}
-                value="12"
-                icon={MicVocal}
-                description={t('talksDesc')}
-                href="/talks"
-                color="orange"
-              />
+              {keyMetrics.map((metric, index) => (
+                <DashboardCard
+                  key={index}
+                  title={metric.title}
+                  value={metric.value}
+                  icon={metric.icon}
+                  description={metric.description}
+                  href={metric.href}
+                  color={metric.color}
+                />
+              ))}
             </div>
           </section>
 
@@ -146,22 +204,17 @@ export default function HomePage() {
           <section>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('recentAchievements')}</h3>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
-              <DashboardCard
-                title={t('2025')}
-                value={t('googleCloudPartner')}
-                icon={Trophy}
-                description={t('individualAward')}
-                href="/awards"
-                color="yellow"
-              />
-              <DashboardCard
-                title={t('2024')}
-                value={t('goodDesignAward')}
-                icon={Award}
-                description={t('productDesign')}
-                href="/awards"
-                color="red"
-              />
+              {achievements.map((achievement, index) => (
+                <DashboardCard
+                  key={index}
+                  title={achievement.title}
+                  value={achievement.value}
+                  icon={achievement.icon}
+                  description={achievement.description}
+                  href={achievement.href}
+                  color={achievement.color}
+                />
+              ))}
             </div>
           </section>
 
@@ -169,25 +222,16 @@ export default function HomePage() {
           <section>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('quickActions')}</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-              <QuickActionCard
-                title={t('aboutMe')}
-                description={t('aboutMeDesc')}
-                href="/about"
-                icon={User}
-              />
-              <QuickActionCard
-                title={t('technicalSkills')}
-                description={t('technicalSkillsDesc')}
-                href="/skills"
-                icon={Cpu}
-              />
-              <QuickActionCard
-                title={t('viewResume')}
-                description={t('viewResumeDesc')}
-                href="https://storage.googleapis.com/takumi-mizuno/resume.pdf"
-                icon={FileText}
-                external
-              />
+              {quickActions.map((action, index) => (
+                <QuickActionCard
+                  key={index}
+                  title={action.title}
+                  description={action.description}
+                  href={action.href}
+                  icon={action.icon}
+                  external={action.external}
+                />
+              ))}
             </div>
           </section>
         </div>
