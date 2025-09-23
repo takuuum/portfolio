@@ -4,6 +4,216 @@ import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { PageNavigation } from '@/components/page-navigation';
 
+// Career data
+const careerData = [
+  {
+    position: 'Application Architect / Developer',
+    subPosition: 'Product Manager',
+    company: 'STUDIO EURYGRAPH',
+    companyUrl: 'https://studioeurygraph.com',
+    duration: '2022/3 - Present',
+    employmentType: 'Outsourcing (full-time from 2025/4)'
+  },
+  {
+    position: 'Application Architect / Developer',
+    subPosition: 'Cloud Architect / Developer',
+    company: 'Toyota Motor Corporation',
+    companyUrl: 'https://global.toyota',
+    duration: '2022/9 - 2023/2',
+    employmentType: 'Permanent (full-time, 在籍出向)'
+  },
+  {
+    position: 'Application Architect / Developer',
+    subPosition: 'Cloud Architect / Developer\nTech Lead / Project Leader',
+    company: 'Cloud Ace',
+    companyUrl: 'https://cloud-ace.jp',
+    duration: '2021/4 - 2025/3',
+    employmentType: 'Permanent (full-time)'
+  }
+];
+
+// Section Header Component
+interface SectionHeaderProps {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+}
+
+function SectionHeader({ icon: Icon, title }: SectionHeaderProps) {
+  return (
+    <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
+      <Icon className='h-5 w-5' />
+      {title}
+    </h3>
+  );
+}
+
+// Career Table Row Component
+interface CareerRowProps {
+  career: typeof careerData[0];
+  isLast?: boolean;
+}
+
+function CareerTableRow({ career, isLast }: CareerRowProps) {
+  const rowClass = isLast
+    ? 'hover:bg-gray-50 dark:hover:bg-gray-700/50'
+    : 'border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50';
+
+  return (
+    <tr className={rowClass}>
+      <td className='py-3 px-2 text-gray-900 dark:text-gray-100'>
+        {career.position}
+        <br />
+        <span className='text-sm text-gray-600 dark:text-gray-400'>
+          {career.subPosition.split('\n').map((line, index) => (
+            <span key={index}>
+              {line}
+              {index < career.subPosition.split('\n').length - 1 && <br />}
+            </span>
+          ))}
+        </span>
+      </td>
+      <td className='py-3 px-2'>
+        <Link
+          prefetch={true}
+          href={career.companyUrl}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-blue-600 dark:text-blue-400 hover:underline'
+        >
+          {career.company}
+        </Link>
+      </td>
+      <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>{career.duration}</td>
+      <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>{career.employmentType}</td>
+    </tr>
+  );
+}
+
+// Career Card Component
+function CareerCard({ career }: { career: typeof careerData[0] }) {
+  const t = useTranslations('About');
+
+  return (
+    <div className='border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors'>
+      <div className='space-y-3'>
+        <div>
+          <h4 className='font-semibold text-gray-900 dark:text-gray-100'>{career.position}</h4>
+          <p className='text-sm text-gray-600 dark:text-gray-400'>
+            {career.subPosition.split('\n').map((line, index) => (
+              <span key={index}>
+                {line}
+                {index < career.subPosition.split('\n').length - 1 && <br />}
+              </span>
+            ))}
+          </p>
+        </div>
+        <div>
+          <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('company')}</p>
+          <Link
+            prefetch={true}
+            href={career.companyUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-blue-600 dark:text-blue-400 hover:underline'
+          >
+            {career.company}
+          </Link>
+        </div>
+        <div className='flex justify-between items-start gap-4'>
+          <div>
+            <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('duration')}</p>
+            <p className='text-sm text-gray-600 dark:text-gray-400'>{career.duration}</p>
+          </div>
+          <div>
+            <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('employmentType')}</p>
+            <p className='text-sm text-gray-600 dark:text-gray-400'>{career.employmentType}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Document Link Component
+interface DocumentLinkProps {
+  href: string;
+  title: string;
+  description: string;
+  colorClass: string;
+}
+
+function DocumentLink({ href, title, description, colorClass }: DocumentLinkProps) {
+  const baseColorClasses = {
+    blue: {
+      bg: 'bg-blue-50 dark:bg-blue-900/20',
+      hover: 'hover:bg-blue-100 dark:hover:bg-blue-900/30',
+      icon: 'text-blue-600 dark:text-blue-400',
+      title: 'text-blue-900 dark:text-blue-100',
+      desc: 'text-blue-700 dark:text-blue-300'
+    },
+    green: {
+      bg: 'bg-green-50 dark:bg-green-900/20',
+      hover: 'hover:bg-green-100 dark:hover:bg-green-900/30',
+      icon: 'text-green-600 dark:text-green-400',
+      title: 'text-green-900 dark:text-green-100',
+      desc: 'text-green-700 dark:text-green-300'
+    }
+  };
+
+  const colors = baseColorClasses[colorClass as keyof typeof baseColorClasses];
+
+  return (
+    <Link
+      prefetch={true}
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+      className={`flex items-center justify-between p-4 ${colors.bg} rounded-lg ${colors.hover} transition-colors`}
+    >
+      <div className='flex items-center gap-3'>
+        <FileText className={`h-6 w-6 ${colors.icon}`} />
+        <div>
+          <h4 className={`font-semibold ${colors.title}`}>{title}</h4>
+          <p className={`text-sm ${colors.desc}`}>{description}</p>
+        </div>
+      </div>
+      <ExternalLink className={`h-5 w-5 ${colors.icon}`} />
+    </Link>
+  );
+}
+
+// Award Item Component
+interface AwardItemProps {
+  title: string;
+  description: string;
+  colorClass: string;
+}
+
+function AwardItem({ title, description, colorClass }: AwardItemProps) {
+  const baseColorClasses = {
+    yellow: {
+      bg: 'bg-yellow-50 dark:bg-yellow-900/20',
+      icon: 'text-yellow-600 dark:text-yellow-400'
+    },
+    orange: {
+      bg: 'bg-orange-50 dark:bg-orange-900/20',
+      icon: 'text-orange-600 dark:text-orange-400'
+    }
+  };
+
+  const colors = baseColorClasses[colorClass as keyof typeof baseColorClasses];
+
+  return (
+    <div className={`flex items-start gap-4 p-4 ${colors.bg} rounded-lg`}>
+      <Trophy className={`h-6 w-6 ${colors.icon} mt-1`} />
+      <div>
+        <h4 className='font-semibold text-gray-900 dark:text-gray-100'>{title}</h4>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>{description}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   const t = useTranslations('About');
   return (
@@ -23,10 +233,7 @@ export default function AboutPage() {
 
           {/* Introduction */}
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
-            <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
-              <User className='h-5 w-5' />
-              {t('profile')}
-            </h3>
+            <SectionHeader icon={User} title={t('profile')} />
             <div className='prose dark:prose-invert'>
               <p className='text-gray-700 dark:text-gray-300 leading-relaxed'>
                 {t('description1')}
@@ -39,10 +246,9 @@ export default function AboutPage() {
 
           {/* Career Path */}
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
-            <h3 className='text-xl font-semibold mb-6 flex items-center gap-2'>
-              <Building2 className='h-5 w-5' />
-              {t('jobSummary')}
-            </h3>
+            <div className='mb-6'>
+              <SectionHeader icon={Building2} title={t('jobSummary')} />
+            </div>
 
             {/* Desktop Table */}
             <div className='hidden md:block overflow-x-auto'>
@@ -56,163 +262,28 @@ export default function AboutPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className='border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50'>
-                    <td className='py-3 px-2 text-gray-900 dark:text-gray-100'>Application Architect / Developer<br />
-                      <span className='text-sm text-gray-600 dark:text-gray-400'>Product Manager</span>
-                    </td>
-                    <td className='py-3 px-2'>
-                      <Link prefetch={true}
-                        href='https://studioeurygraph.com'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-blue-600 dark:text-blue-400 hover:underline'
-                      >
-                        STUDIO EURYGRAPH
-                      </Link>
-                    </td>
-                    <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>2022/3 - Present</td>
-                    <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>Outsourcing (full-time from 2025/4)</td>
-                  </tr>
-                  <tr className='border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50'>
-                  <td className='py-3 px-2 text-gray-900 dark:text-gray-100'>
-                      Application Architect / Developer<br />
-                      <span className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer</span>
-                    </td>
-                    <td className='py-3 px-2'>
-                      <Link prefetch={true}
-                        href='https://global.toyota'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-blue-600 dark:text-blue-400 hover:underline'
-                      >
-                        Toyota Motor Corporation
-                      </Link>
-                    </td>
-                    <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>2022/9 - 2023/2</td>
-                    <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>Permanent (full-time, 在籍出向)</td>
-                  </tr>
-                  <tr className='hover:bg-gray-50 dark:hover:bg-gray-700/50'>
-                    <td className='py-3 px-2 text-gray-900 dark:text-gray-100'>
-                      Application Architect / Developer<br />
-                      <span className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer<br />Tech Lead / Project Leader</span>
-                    </td>
-                    <td className='py-3 px-2'>
-                      <Link prefetch={true}
-                        href='https://cloud-ace.jp'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-blue-600 dark:text-blue-400 hover:underline'
-                      >
-                        Cloud Ace
-                      </Link>
-                    </td>
-                    <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>2021/4 - 2025/3</td>
-                    <td className='py-3 px-2 text-gray-700 dark:text-gray-300'>Permanent (full-time)</td>
-                  </tr>
+                  {careerData.map((career, index) => (
+                    <CareerTableRow
+                      key={index}
+                      career={career}
+                      isLast={index === careerData.length - 1}
+                    />
+                  ))}
                 </tbody>
               </table>
             </div>
 
             {/* Mobile Cards */}
             <div className='md:hidden space-y-4'>
-              <div className='border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors'>
-                <div className='space-y-3'>
-                  <div>
-                    <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Application Architect / Developer</h4>
-                    <p className='text-sm text-gray-600 dark:text-gray-400'>Product Manager</p>
-                  </div>
-                  <div>
-                    <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('company')}</p>
-                    <Link prefetch={true}
-                      href='https://studioeurygraph.com'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-blue-600 dark:text-blue-400 hover:underline'
-                    >
-                      STUDIO EURYGRAPH
-                    </Link>
-                  </div>
-                  <div className='flex justify-between items-start gap-4'>
-                    <div>
-                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('duration')}</p>
-                      <p className='text-sm text-gray-600 dark:text-gray-400'>2022/3 - Present</p>
-                    </div>
-                    <div>
-                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('employmentType')}</p>
-                      <p className='text-sm text-gray-600 dark:text-gray-400'>Outsourcing (full-time from 2025/4)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors'>
-                <div className='space-y-3'>
-                  <div>
-                    <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Application Architect / Developer</h4>
-                    <p className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer</p>
-                  </div>
-                  <div>
-                    <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('company')}</p>
-                    <Link prefetch={true}
-                      href='https://global.toyota'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-blue-600 dark:text-blue-400 hover:underline'
-                    >
-                      Toyota Motor Corporation
-                    </Link>
-                  </div>
-                  <div className='flex justify-between items-start gap-4'>
-                    <div>
-                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('duration')}</p>
-                      <p className='text-sm text-gray-600 dark:text-gray-400'>2022/9 - 2023/2</p>
-                    </div>
-                    <div>
-                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('employmentType')}</p>
-                      <p className='text-sm text-gray-600 dark:text-gray-400'>Permanent (full-time, 在籍出向)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors'>
-                <div className='space-y-3'>
-                  <div>
-                    <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Application Architect / Developer</h4>
-                    <p className='text-sm text-gray-600 dark:text-gray-400'>Cloud Architect / Developer<br />Tech Lead / Project Leader</p>
-                  </div>
-                  <div>
-                    <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('company')}</p>
-                    <Link prefetch={true}
-                      href='https://cloud-ace.jp'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-blue-600 dark:text-blue-400 hover:underline'
-                    >
-                      Cloud Ace
-                    </Link>
-                  </div>
-                  <div className='flex justify-between items-start gap-4'>
-                    <div>
-                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('duration')}</p>
-                      <p className='text-sm text-gray-600 dark:text-gray-400'>2021/4 - 2025/3</p>
-                    </div>
-                    <div>
-                      <p className='text-sm font-medium text-gray-700 dark:text-gray-300'>{t('employmentType')}</p>
-                      <p className='text-sm text-gray-600 dark:text-gray-400'>Permanent (full-time)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {careerData.map((career, index) => (
+                <CareerCard key={index} career={career} />
+              ))}
             </div>
           </section>
 
           {/* Expertise */}
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
-            <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
-              <Users className='h-5 w-5' />
-              {t('expertise')}
-            </h3>
+            <SectionHeader icon={Users} title={t('expertise')} />
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
               <div className='p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg'>
                 <h4 className='font-semibold text-blue-900 dark:text-blue-100'>{t('clientCommunication')}</h4>
@@ -231,65 +302,37 @@ export default function AboutPage() {
 
           {/* Documents */}
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
-            <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
-              <FileText className='h-5 w-5' />
-              {t('documents')}
-            </h3>
+            <SectionHeader icon={FileText} title={t('documents')} />
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-              <Link prefetch={true}
+              <DocumentLink
                 href='https://storage.googleapis.com/takumi-mizuno/resume.pdf'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center justify-between p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors'
-              >
-                <div className='flex items-center gap-3'>
-                  <FileText className='h-6 w-6 text-blue-600 dark:text-blue-400' />
-                  <div>
-                    <h4 className='font-semibold text-blue-900 dark:text-blue-100'>{t('resume')}</h4>
-                    <p className='text-sm text-blue-700 dark:text-blue-300'>{t('viewPdf')}</p>
-                  </div>
-                </div>
-                <ExternalLink className='h-5 w-5 text-blue-600 dark:text-blue-400' />
-              </Link>
-              <Link prefetch={true}
+                title={t('resume')}
+                description={t('viewPdf')}
+                colorClass='blue'
+              />
+              <DocumentLink
                 href='https://storage.googleapis.com/takumi-mizuno/job-history.pdf'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center justify-between p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors'
-              >
-                <div className='flex items-center gap-3'>
-                  <FileText className='h-6 w-6 text-green-600 dark:text-green-400' />
-                  <div>
-                    <h4 className='font-semibold text-green-900 dark:text-green-100'>{t('jobHistory')}</h4>
-                    <p className='text-sm text-green-700 dark:text-green-300'>{t('viewPdf')}</p>
-                  </div>
-                </div>
-                <ExternalLink className='h-5 w-5 text-green-600 dark:text-green-400' />
-              </Link>
+                title={t('jobHistory')}
+                description={t('viewPdf')}
+                colorClass='green'
+              />
             </div>
           </section>
 
           {/* Awards */}
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
-            <h3 className='text-xl font-semibold mb-4 flex items-center gap-2'>
-              <Award className='h-5 w-5' />
-              {t('awards')}
-            </h3>
+            <SectionHeader icon={Award} title={t('awards')} />
             <div className='space-y-4'>
-              <div className='flex items-start gap-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg'>
-                <Trophy className='h-6 w-6 text-yellow-600 dark:text-yellow-400 mt-1' />
-                <div>
-                  <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Google Cloud Partner Top Engineer 2025</h4>
-                  <p className='text-sm text-gray-600 dark:text-gray-400'>{t('individualAward')}</p>
-                </div>
-              </div>
-              <div className='flex items-start gap-4 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg'>
-                <Trophy className='h-6 w-6 text-orange-600 dark:text-orange-400 mt-1' />
-                <div>
-                  <h4 className='font-semibold text-gray-900 dark:text-gray-100'>Good Design Award 2024</h4>
-                  <p className='text-sm text-gray-600 dark:text-gray-400'>{t('productDesign')}</p>
-                </div>
-              </div>
+              <AwardItem
+                title='Google Cloud Partner Top Engineer 2025'
+                description={t('individualAward')}
+                colorClass='yellow'
+              />
+              <AwardItem
+                title='Good Design Award 2024'
+                description={t('productDesign')}
+                colorClass='orange'
+              />
             </div>
           </section>
         </div>
