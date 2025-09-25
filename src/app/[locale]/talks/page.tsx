@@ -41,7 +41,7 @@ const TalkCard = ({
                 <div className='flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400'>
                   <div className='flex items-center gap-1'>
                     <Clock className='h-4 w-4' />
-                    <span>{month} {year}</span>
+                    <span className='whitespace-nowrap'>{month} {year}</span>
                   </div>
                   <div className='flex items-center gap-1'>
                     <MapPin className='h-4 w-4' />
@@ -50,7 +50,10 @@ const TalkCard = ({
                   {attendees && (
                     <div className='flex items-center gap-1'>
                       <Users className='h-4 w-4' />
-                      <span>{attendees.toLocaleString()} {t('attendees')}</span>
+                      <span>{attendees.toLocaleString()}</span>
+                      <span className='hidden md:inline'>
+                        {t('attendees')}
+                      </span>
                     </div>
                   )}
                 </div>
