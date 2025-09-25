@@ -36,7 +36,7 @@ const ArticleCard = ({
       <div className='flex items-start gap-4'>
         <FileText className='h-6 w-6 text-gray-600 dark:text-gray-400 mt-1 flex-shrink-0' />
         <div className='flex-1'>
-          <div className='flex items-start justify-between mb-3'>
+          <div className='flex items-start justify-between mb-3 gap-4'>
             <div className='flex-1'>
               <h3 className='text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 mr-8 leading-tight'>
                 {title}
@@ -59,7 +59,7 @@ const ArticleCard = ({
               rel='noopener noreferrer'
               className='flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm flex-shrink-0'
             >
-              {t('readArticle')}
+              <span className='hidden md:inline'>{t('readArticle')}</span>
               <ExternalLink className='h-4 w-4' />
             </Link>
           </div>

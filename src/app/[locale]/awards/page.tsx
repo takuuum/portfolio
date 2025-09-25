@@ -36,7 +36,7 @@ const AwardCard = ({
       <div className='flex items-start gap-4'>
         <Trophy className={`h-8 w-8 ${iconColors[color]} mt-1 flex-shrink-0`} />
         <div className='flex-1'>
-          <div className='flex items-start justify-between mb-3'>
+          <div className='flex items-start justify-between mb-3 gap-4'>
             <div>
               <h3 className='text-xl font-bold text-gray-900 dark:text-gray-100 mb-1'>
                 {title}
@@ -58,7 +58,7 @@ const AwardCard = ({
               rel='noopener noreferrer'
               className='flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm'
             >
-              {t('viewAward')}
+              <span className='hidden md:inline'>{t('viewAward')}</span>
               <ExternalLink className='h-4 w-4' />
             </Link>
           </div>
