@@ -61,7 +61,7 @@ const ProjectCard = ({
                 rel='noopener noreferrer'
                 className='flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm flex-shrink-0 ml-4'
               >
-                {t('viewProject')}
+                <span className='hidden md:inline'>{t('viewProject')}</span>
                 <ExternalLink className='h-4 w-4' />
               </Link>
             )}
