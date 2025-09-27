@@ -109,9 +109,9 @@ export default function ProjectsPage() {
   const projects = [
     {
       title: "AIテキストエディタ「Xaris」の開発/運用",
-      description: "プロライター向けのテキスト編集プラットフォームの開発/運用を行いました。AIベースのライティング支援、文字起こし機能、Notionベースのドキュメント機能、リアルタイムの共同編集などを提供しています。私は主に開発ロードマップの策定、SveltekitからNext.jsへのリプレイスなどを担当していました。",
+      description: "プロライター向けのテキスト編集プラットフォームの開発/運用を行いました。AIベースのライティング支援、文字起こし機能、Notionベースのドキュメント機能、リアルタイムの共同編集などを提供しています。私は主に開発ロードマップの策定、技術選定、SveltekitからNext.jsへのリプレイスなどを担当していました。",
       role: "Product Manager, Frontend Architect/Developer, Backend Architect/Developer",
-      techStack: ['Next.js', 'React', 'Node.js', 'Vercel AI SDK', 'PostgreSQL', 'Cloudflare'],
+      techStack: ['Next.js', 'React', 'Sveltekit', 'Node.js', 'Vercel AI SDK', 'PostgreSQL', 'Cloudflare'],
       labels: ['ToC', 'Frontend', 'Backend'],
       url: "https://zenn.dev/studioeurygraph/articles/e636fd44517aed"
     },
@@ -133,14 +133,14 @@ export default function ProjectsPage() {
     },
     {
       title: "トヨタ自動車の生産現場におけるデータの利活用とクラウド移行のPoC",
-      description: "トヨタ自動車の工場現場において「現場で生成されるデータの利活用」や「オンプレミスからのクラウド移行」等ができないか、調査や検証を行いました。私は主に工場カメラをストリーミングで転送しクラウドに保存するデータパイプライン構築のPoCを担当しました。",
+      description: "トヨタ自動車の工場現場において「現場で生成されるデータの利活用」や「オンプレミスからのクラウド移行」等ができないか、調査や検証を行いました。私は主に「工場カメラをストリーミングで転送しクラウドに保存する」データパイプライン構築のPoCを担当しました。",
       role: "Backend Architect/Developer, Cloud Architect/Developer",
       techStack: ['Python', 'Google Cloud'],
       labels: ['ToB', 'Backend', 'Infrastructure', 'Data Pipeline']
     },
     {
       title: "製造会社における価格管理システムの開発",
-      description: "価格管理システムのアプリケーション開発と複数システムデータを連携するデータパイプライン開発を行いました。",
+      description: "価格管理システムのAPI開発と複数システムデータを連携するデータパイプライン開発を行いました。",
       role: "Project Leader, Backend Architect/Developer",
       techStack: ['Python', 'MySQL', 'Google Cloud', 'DDD', 'Microservices'],
       labels: ['ToB', 'Backend', 'Data Pipeline']

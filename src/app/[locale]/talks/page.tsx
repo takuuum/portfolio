@@ -107,7 +107,7 @@ export default function TalksPage() {
       event: "Developers Summit 2023 Summer",
       year: "2023",
       month: "July",
-      description: "ドメイン駆動設計（DDD）とモダンソフトウェア開発におけるその重要性の詳細な探求。この講演では、DDD原則の必要性と適用性について取り上げ、複雑なビジネス要件にどのように対処し、ソフトウェアの保守性を向上させるかを議論。DDDの採用を検討するチームに向けて、実世界の例と実践的な実装戦略を紹介。",
+      description: "ドメイン駆動設計（DDD）とモダンソフトウェア開発におけるその重要性の詳細な探求。この講演では、DDD原則の必要性と適用性について取り上げ、複雑なビジネス要件にどのように対処し、ソフトウェアの保守性を向上させるかを議論。DDDの採用を検討するチームに向けて、実例と実践的な実装戦略を紹介。",
       link: "https://codezine.jp/devonline/archive/session/157",
       attendees: 2000,
       venue: "Tokyo"
