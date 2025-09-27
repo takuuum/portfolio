@@ -1,6 +1,7 @@
-import { Code, Users, Zap, MessageSquare, Star, TrendingUp, Database, Cloud, Cpu, Brain, BarChart3 } from 'lucide-react';
+import { Users, Zap, MessageSquare, Star, TrendingUp, Database, Cpu, Brain, BarChart3 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { PageNavigation } from '@/components/page-navigation';
+import { ReactIcon, VueIcon, NodejsIcon, PythonIcon, GoIcon, GoogleCloudIcon, HtmlIcon } from '@/components/icons/tech-icons';
 
 const StarRating = ({ level }: { level: number }) => {
   return (
@@ -46,19 +47,19 @@ export default function SkillsPage() {
   const t = useTranslations('Skills');
 
   const frontendSkills = [
-    { icon: Code, title: "HTML, CSS, TypeScript", level: 3, description: undefined },
-    { icon: Code, title: "React, Next.js", level: 3, description: undefined },
-    { icon: Code, title: "Vue, Nuxt", level: 3, description: undefined }
+    { icon: HtmlIcon, title: "HTML, CSS, TypeScript", level: 3, description: undefined },
+    { icon: ReactIcon, title: "React, Next.js", level: 3, description: undefined },
+    { icon: VueIcon, title: "Vue, Nuxt", level: 3, description: undefined }
   ];
 
   const backendSkills = [
-    { icon: Code, title: "Golang", level: 5, description: undefined },
-    { icon: Code, title: "Node.js, NestJS", level: 3, description: undefined },
-    { icon: Code, title: "Python", level: 3, description: "Haven't used for 2 years, need to relearn" }
+    { icon: GoIcon, title: "Golang", level: 5, description: undefined },
+    { icon: NodejsIcon, title: "Node.js, NestJS", level: 3, description: undefined },
+    { icon: PythonIcon, title: "Python", level: 3, description: "Haven't used for 2 years, need to relearn" }
   ];
 
   const infrastructureSkills = [
-    { icon: Cloud, title: "Google Cloud", level: 4, description: undefined },
+    { icon: GoogleCloudIcon, title: "Google Cloud", level: 4, description: undefined },
     { icon: Database, title: "MySQL, PostgreSQL", level: 3, description: undefined },
     { icon: Database, title: "NoSQL", level: 3, description: undefined }
   ];
@@ -148,7 +149,7 @@ export default function SkillsPage() {
           {/* Technical Skills */}
           <section className='bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2'>
-              <Code className='h-5 w-5' />
+              <Cpu className='h-5 w-5' />
               {t('technicalSkills')}
             </h3>
 
