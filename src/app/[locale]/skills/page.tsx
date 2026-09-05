@@ -2,6 +2,8 @@ import { Users, Zap, MessageSquare, Star, TrendingUp, Database, Cpu, Brain, BarC
 import { useTranslations } from 'next-intl';
 import { PageNavigation } from '@/components/page-navigation';
 import { ReactIcon, VueIcon, NodejsIcon, PythonIcon, GoIcon, GoogleCloudIcon, HtmlIcon } from '@/components/icons/tech-icons';
+import { FaAws } from 'react-icons/fa';
+import { SiGraphql, SiDbt } from 'react-icons/si';
 
 const StarRating = ({ level }: { level: number }) => {
   return (
@@ -48,19 +50,21 @@ export default function SkillsPage() {
 
   const frontendSkills = [
     { icon: HtmlIcon, title: "HTML, CSS, TypeScript", level: 3, description: undefined },
-    { icon: ReactIcon, title: "React, Next.js", level: 3, description: undefined },
+    { icon: ReactIcon, title: "React, Next.js", level: 4, description: undefined },
     { icon: VueIcon, title: "Vue, Nuxt", level: 3, description: undefined }
   ];
 
   const backendSkills = [
     { icon: GoIcon, title: "Golang", level: 5, description: undefined },
-    { icon: NodejsIcon, title: "Node.js, NestJS", level: 3, description: undefined },
-    { icon: PythonIcon, title: "Python", level: 3, description: "Haven't used for 2 years, need to relearn" }
+    { icon: NodejsIcon, title: "Node.js, NestJS", level: 4, description: undefined },
+    { icon: SiGraphql, title: "GraphQL, Hasura", level: 3, description: undefined },
+    { icon: PythonIcon, title: "Python", level: 3, description: undefined }
   ];
 
   const infrastructureSkills = [
     { icon: GoogleCloudIcon, title: "Google Cloud", level: 4, description: undefined },
-    { icon: Database, title: "MySQL, PostgreSQL", level: 3, description: undefined },
+    { icon: FaAws, title: "AWS", level: 3, description: undefined },
+    { icon: Database, title: "MySQL, PostgreSQL", level: 4, description: undefined },
     { icon: Database, title: "NoSQL", level: 3, description: undefined }
   ];
 
@@ -75,8 +79,14 @@ export default function SkillsPage() {
     { icon: Cpu, title: "Modular Monolith", level: 4, description: undefined }
   ];
 
+  const dataSkills = [
+    { icon: SiDbt, title: "dbt", level: 3, description: undefined },
+    { icon: Database, title: "Snowflake", level: 2, description: undefined }
+  ];
+
   const aiSkills = [
-    { icon: Brain, title: "GenAI Application", level: 3, description: undefined }
+    { icon: Brain, title: "GenAI Application", level: 3, description: undefined },
+    { icon: Brain, title: "AI-Driven Development (Claude Code, Codex)", level: 4, description: undefined }
   ];
 
   return (
@@ -222,6 +232,22 @@ export default function SkillsPage() {
               <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('architecture')}</h4>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {architectureSkills.map((skill, index) => (
+                  <SkillCard
+                    key={index}
+                    icon={skill.icon}
+                    title={skill.title}
+                    level={skill.level}
+                    description={skill.description}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Data Engineering */}
+            <div className='mb-8'>
+              <h4 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4'>{t('data')}</h4>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                {dataSkills.map((skill, index) => (
                   <SkillCard
                     key={index}
                     icon={skill.icon}

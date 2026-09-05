@@ -90,7 +90,7 @@ export default function HomePage() {
   const keyMetrics = [
     {
       title: t('experience'),
-      value: "4+",
+      value: "5+",
       icon: Calendar,
       description: t('experienceDesc'),
       href: "/skills",
@@ -106,7 +106,7 @@ export default function HomePage() {
     },
     {
       title: t('articles'),
-      value: "8",
+      value: "9",
       icon: FileText,
       description: t('articlesDesc'),
       href: "/articles",

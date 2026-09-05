@@ -30,6 +30,7 @@ const ProjectCard = ({
     'Infrastructure': 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200',
     'SRE': 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200',
     'Data Pipeline': 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200',
+    'AI': 'bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200',
     'グッドデザイン賞受賞': 'bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-200'
   };
 
@@ -107,6 +108,14 @@ export default function ProjectsPage() {
   const t = useTranslations('Projects');
 
   const projects = [
+    {
+      title: "「COTEN世界史データベース」のデータプラットフォーム開発",
+      description: "歴史の膨大なケーススタディとインサイトを誰でも引き出せることを目指す世界史データベースの、データプラットフォーム開発チーム（エンジニア5名）に所属しています。マルチテナント対応のGraphQL API、外部データを取り込むデータインポートパイプライン、dbtによるデータ変換基盤、LLMとWikidataを組み合わせたカテゴリ推定ジョブの設計・実装を担当。あわせて、Claude Code / Codexを組み込んだCI/CDと開発ワークフロー（AIによる起案・実装・一次レビュー、人間による方針決定・最終レビュー）の整備をリードしています。",
+      role: "Software Architect/Developer, Data Platform Engineer, AI Workflow Lead",
+      techStack: ['TypeScript', 'NestJS', 'Prisma', 'PostgreSQL', 'GraphQL', 'Hasura', 'React', 'dbt', 'Snowflake', 'Python', 'AWS', 'Google Cloud', 'GitHub Actions', 'Claude Code'],
+      labels: ['ToB', 'Backend', 'Data Pipeline', 'AI'],
+      url: "https://zenn.dev/coten/articles/6e1d0b8e14eaf3"
+    },
     {
       title: "AIテキストエディタ「Xaris」の開発/運用",
       description: "プロライター向けのテキスト編集プラットフォームの開発/運用を行いました。AIベースのライティング支援、文字起こし機能、Notionベースのドキュメント機能、リアルタイムの共同編集などを提供しています。私は主に開発ロードマップの策定、技術選定、SveltekitからNext.jsへのリプレイスなどを担当していました。",
@@ -225,6 +234,9 @@ export default function ProjectsPage() {
                 </span>
                 <span className='px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 rounded-full text-sm'>
                   Data Pipeline
+                </span>
+                <span className='px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 rounded-full text-sm'>
+                  AI
                 </span>
               </div>
             </div>
