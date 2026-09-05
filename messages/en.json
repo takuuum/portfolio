@@ -15,7 +15,7 @@
   "Dashboard": {
     "title": "Home",
     "welcome": "Welcome to My Portfolio",
-    "description": "Hello, I'm Takumi Mizuno, a Web Application Engineer.",
+    "description": "Hello, I'm Takumi Mizuno, a Software Architect and Engineer building the data platform for the World History Database at COTEN.",
     "keyMetrics": "Key Metrics",
     "experience": "Experience",
     "experienceDesc": "Years in software engineering",
@@ -45,15 +45,15 @@
     "publishedArticle": "Published: OpenTelemetry+Go Article",
     "publishedArticleDesc": "Technical article about distributed tracing with special recognition",
     "careerTransition": "Career Transition",
-    "careerTransitionDesc": "Started new role focusing on AI text editor development"
+    "careerTransitionDesc": "Joined COTEN to build the data platform for the World History Database"
   },
   "About": {
     "title": "About Me",
     "name": "Takumi Mizuno",
-    "job": "Web Application Engineer",
+    "job": "Software Architect / Engineer",
     "profile": "Profile",
-    "description1": "Web Application Engineer with experience in backend development and SRE at SI companies and Toyota Motor Corporation. Currently working on frontend development for AI text editors at a startup company.",
-    "description2": "Responsible for a wide range of development processes including client negotiation, requirements definition, design, implementation, and testing. Specialized in client communication, requirements definition, and application architecture (DDD, Microservices, etc.).",
+    "description1": "Experienced in backend development and SRE at an SI company and Toyota Motor Corporation, followed by product management and full-stack development of an AI text editor at a startup. Since January 2026, building the data platform for the World History Database at COTEN: GraphQL APIs, data import pipelines, dbt-based data transformation, and AI-agent-driven development workflows.",
+    "description2": "Responsible for a wide range of development processes including client negotiation, requirements definition, design, implementation, testing, and operations. Specialized in DDD-based application architecture and in designing development processes built around generative AI.",
     "jobSummary": "Job Summary",
     "position": "Position",
     "company": "Company",
@@ -69,7 +69,7 @@
     "requirementsDefinition": "Requirements Definition",
     "reqDefDesc": "Converting business requirements to technical specifications",
     "applicationDesign": "Application Design",
-    "appDesignDesc": "Architecture design including DDD, Microservices",
+    "appDesignDesc": "Architecture design including DDD, Microservices, and data pipelines",
     "awards": "Awards",
     "individualAward": "Individual recognition award",
     "productDesign": "Product design excellence and social impact evaluation"
@@ -88,6 +88,7 @@
     "devops": "DevOps",
     "architecture": "Architecture",
     "ai": "AI",
+    "data": "Data Engineering",
     "skillLevelGuide": "Skill Level Guide",
     "level5": "Capable of reviewing and educating others",
     "level4": "Capable of reviewing others",

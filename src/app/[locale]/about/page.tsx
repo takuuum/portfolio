@@ -7,12 +7,20 @@ import { PageNavigation } from '@/components/page-navigation';
 // Career data
 const careerData = [
   {
+    position: 'Software Architect / Developer',
+    subPosition: 'Data Platform Engineer',
+    company: 'COTEN',
+    companyUrl: 'https://coten.co.jp',
+    duration: '2026/1 - Present',
+    employmentType: 'Permanent (full-time)'
+  },
+  {
     position: 'Application Architect / Developer',
     subPosition: 'Product Manager',
     company: 'STUDIO EURYGRAPH',
     companyUrl: 'https://studioeurygraph.com',
     duration: '2022/3 - Present',
-    employmentType: 'Outsourcing (full-time from 2025/4)'
+    employmentType: 'Outsourcing (full-time 2025/4 - 2025/12)'
   },
   {
     position: 'Application Architect / Developer',

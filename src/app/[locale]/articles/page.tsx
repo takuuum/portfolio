@@ -77,6 +77,12 @@ export default function ArticlesPage() {
 
   const technicalArticles = [
     {
+      title: "世界史データベースチームの開発手法",
+      platform: "Zenn",
+      url: "https://zenn.dev/coten/articles/6e1d0b8e14eaf3",
+      description: "株式会社COTENの世界史データベース開発チームにおける、生成AIを前提とした開発手法を紹介する共著記事。「AIが起案・実装・一次レビューを担い、人間が方針決定・最終レビュー・マージを担う」Human-in-the-loopの体制、1,000件超の過去レビューコメントから抽出した約60のルールによるAIコードレビュー、Claude Code GitHub Actionsによるワークフロー自動化などを解説。"
+    },
+    {
       title: "どのレイヤー（層）でトランザクションを実装すべきか",
       platform: "Zenn",
       url: "https://zenn.dev/cloud_ace/articles/transaction-architecture",
@@ -143,7 +149,7 @@ export default function ArticlesPage() {
   ];
 
   const writingStats = [
-    { value: "8", color: "text-blue-600 dark:text-blue-400", label: t('technicalArticlesCount') },
+    { value: "9", color: "text-blue-600 dark:text-blue-400", label: t('technicalArticlesCount') },
     { value: "6", color: "text-purple-600 dark:text-purple-400", label: t('notTechnicalArticlesCount') },
     { value: "1", color: "text-yellow-600 dark:text-yellow-400", label: t('awardReceived') }
   ];
